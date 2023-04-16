@@ -21,11 +21,19 @@ export const theme = {
   fonts: {
     opensans: "Open Sans",
   },
-  paddings: {
-    container: "15px",
-    pageTop: "30px",
+  fontSize: {
+    sm: "12px",
+    md: "15px",
+    lg: "20px",
   },
-  margins: {
-    pageTop: "30px",
+  fontWidth: {
+    bold: 500,
+    bolder: 700,
+  },
+  nav: {
+    height: "50px",
+  },
+  footer: {
+    height: "30px",
   },
 };
