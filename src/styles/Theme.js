@@ -25,6 +25,10 @@ export const theme = {
     sm: "12px",
     md: "15px",
     lg: "20px",
+    head: "3rem"
+  },
+  shadow: {
+    sm: "2px 4px 4px rgba(0,0,0,0.2), 0px -5px 10px rgba(255,255,255,0.15)"
   },
   fontWidth: {
     bold: 500,
@@ -36,4 +40,7 @@ export const theme = {
   footer: {
     height: "30px",
   },
+  view: {
+    mobile: "@media only screen and (max-width: 768px)"
+  }
 };

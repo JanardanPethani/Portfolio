@@ -1,48 +1,31 @@
 import React from "react";
-import Image from "../../components/image/Image";
-import styled from "styled-components";
-import "./Home.styles.scss";
+import Image from "../../components/image/Image.jsx";
+import EducationComponent from "../../components/education/Education.jsx";
+import ExperienceComponent from "../../components/experience/Experience.jsx";
+import {
+  HomeWrapper,
+  ProfileDescriptionWrapper,
+  IntroWrapper,
+  Devider,
+} from "./Home.styles.jsx";
+import HeadText from "../../components/texts/HeadText.jsx";
+import SubtitleText from "../../components/texts/SubtitleText.jsx";
 
 function Home() {
   return (
     <HomeWrapper>
-      <TopSectionWrapper>
+      <IntroWrapper>
         <ProfileDescriptionWrapper>
-          <p className="profile-name">Janardan Pethani</p>
-          <p className="profile-designation">Software Developer</p>
+          <HeadText bolder>Janardan Pethani</HeadText>
+          <SubtitleText>Software Developer</SubtitleText>
         </ProfileDescriptionWrapper>
         <Image img={"/images/profile.jpg"} profile={true} />
-      </TopSectionWrapper>
-      <BottomSectionWrapper>
-        <div>Education</div>
-        <div>Experience</div>
-      </BottomSectionWrapper>
+      </IntroWrapper>
+      <Devider />
+      <EducationComponent />
+      <ExperienceComponent />
     </HomeWrapper>
   );
 }
-
-const HomeWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-`;
-
-const TopSectionWrapper = styled.div`
-  display: grid;
-  padding: 20px;
-  grid-template-columns: 2fr 1fr;
-`;
-
-const BottomSectionWrapper = styled.div`
-  display: grid;
-  padding: 20px;
-  grid-template-columns: 1fr 1fr;
-`;
-
-const ProfileDescriptionWrapper = styled.div`
-  display: flex;
-  padding-left: 20vw;
-  flex-direction: column;
-  justify-content: center;
-`;
 
 export default Home;

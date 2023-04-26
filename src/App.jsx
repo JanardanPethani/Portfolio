@@ -1,20 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/Global";
 import { theme } from "./styles/Theme";
-import Home from "./pages/home/Home";
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/footer/Footer";
-import RootLayout from "./RootLayout";
+import Home from "./pages/home/Home.jsx";
+import NavBar from "./components/navbar/NavBar.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import RootLayout from "./RootLayout.jsx";
+import { Content } from "./App.styles.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <RootLayout>
+        <RootLayout mode="white">
           <NavBar />
           <Content>
             <Routes>
@@ -27,10 +28,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-const Content = styled.div`
-  grid-area: content;
-  padding: 10px 50px;
-`;
 
 export default App;
