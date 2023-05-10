@@ -7,8 +7,7 @@ import { theme } from "./styles/Theme";
 import Home from "./pages/home/Home.jsx";
 import NavBar from "./components/navbar/NavBar.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import RootLayout from "./RootLayout.jsx";
-import { Content } from "./App.styles.jsx";
+import RootLayout, { Content } from "./RootLayout.jsx";
 
 function App() {
   return (

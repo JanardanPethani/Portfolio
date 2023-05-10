@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  font-family: ${({ theme }) => theme.fonts.opensans}, sans-serif;
+  font-family: ${({ theme }) => theme.fonts.quicksand};
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.background};

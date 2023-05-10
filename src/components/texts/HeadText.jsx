@@ -24,4 +24,8 @@ const Text = styled.div`
       return theme.shadow.sm;
     }
   }};
+
+  ${({ theme }) => theme.view.mobile} {
+    font-size: ${({ theme }) => theme.fontSize.mbHead};
+  }
 `;

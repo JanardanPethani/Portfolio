@@ -13,9 +13,25 @@ const RootLayoutWrapper = styled.div`
   color: ${({ theme, mode }) => {
     return mode === "dark" ? theme.colors.white : theme.colors.black;
   }};
-  grid-template-areas: "nav" "content" "footer";
-  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "nav content" "nav footer";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
   height: 100vh;
+
+  ${({ theme }) => theme.view.mobile} {
+    grid-template-areas: "nav" "content" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+`;
+
+export const Content = styled.div`
+  grid-area: content;
+  padding: 0px 30px;
+
+  ${({ theme }) => theme.view.mobile} {
+    padding: 10px 5vw;
+  }
 `;
 
 export default RootLayout;

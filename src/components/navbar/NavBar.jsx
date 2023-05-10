@@ -1,10 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 function NavBar() {
+  let loc = useLocation();
+  console.log(loc);
   return (
     <Nav>
-      <ListChild>Home</ListChild>
+      <ListChild isActive={loc.pathname == "/"}>Home</ListChild>
       <ListChild>About</ListChild>
       <ListChild>Blogs</ListChild>
       <ListChild>Photography</ListChild>
@@ -18,10 +21,15 @@ const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   grid-area: "nav";
-  border-bottom: 1px solid;
-  border-bottom-color: ${({ theme }) => {
-    theme.colors.dark;
-  }};
+  grid-row: 1 / 3;
+  flex-direction: column;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.black};
+
+  ${({ theme }) => theme.view.mobile} {
+    flex-direction: row;
+    grid-row: 1;
+  }
 `;
 
 const ListChild = styled.div`
@@ -31,12 +39,26 @@ const ListChild = styled.div`
   padding: 0px 30px;
   height: ${({ theme }) => theme.nav.height};
   cursor: pointer;
+  width: 100%;
   letter-spacing: 1px;
   transition: background-color 0.2s ease, color 0.2s ease;
+  box-sizing: border-box;
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.black};
+    `}
 
   :hover {
-    background-color: ${({ theme }) => theme.colors.black};
-    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
+  }
+
+  ${({ theme }) => theme.view.mobile} {
+    padding: 10px 5px;
+    width: auto;
   }
 `;
 

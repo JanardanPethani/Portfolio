@@ -19,13 +19,16 @@ export const theme = {
     success: "#66A15A",
   },
   fonts: {
-    opensans: "Open Sans",
+    quicksand: "Quicksand",
   },
   fontSize: {
     sm: "12px",
     md: "15px",
     lg: "20px",
-    head: "3rem"
+    head: "5rem",
+    subTitle: "2rem",
+    mbHead: "2rem",
+    mbSubTitle: "1rem"
   },
   shadow: {
     sm: "2px 4px 4px rgba(0,0,0,0.2), 0px -5px 10px rgba(255,255,255,0.15)"
