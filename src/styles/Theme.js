@@ -25,13 +25,13 @@ export const theme = {
     sm: "12px",
     md: "15px",
     lg: "20px",
-    head: "5rem",
-    subTitle: "2rem",
+    head: "5vw",
+    subTitle: "3vw",
     mbHead: "2rem",
-    mbSubTitle: "1rem"
+    mbSubTitle: "1rem",
   },
   shadow: {
-    sm: "2px 4px 4px rgba(0,0,0,0.2), 0px -5px 10px rgba(255,255,255,0.15)"
+    sm: "2px 4px 4px rgba(0,0,0,0.2), 0px -5px 10px rgba(255,255,255,0.15)",
   },
   fontWidth: {
     bold: 500,
@@ -44,6 +44,6 @@ export const theme = {
     height: "30px",
   },
   view: {
-    mobile: "@media only screen and (max-width: 768px)"
-  }
+    mobile: "@media only screen and (max-width: 768px)",
+  },
 };

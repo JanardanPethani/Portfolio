@@ -1,17 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 function NavBar() {
   let loc = useLocation();
-  console.log(loc);
   return (
     <Nav>
-      <ListChild isActive={loc.pathname == "/"}>Home</ListChild>
-      <ListChild>About</ListChild>
-      <ListChild>Blogs</ListChild>
-      <ListChild>Photography</ListChild>
-      <ListChild>Contact</ListChild>
+      <ListChild isActive={loc.pathname == "/"} to={"/"}>
+        Home
+      </ListChild>
+      <ListChild isActive={loc.pathname == "/about"} to={"/about"}>
+        About
+      </ListChild>
+      <ListChild isActive={loc.pathname == "/blogs"} to={"/blogs"}>
+        Blogs
+      </ListChild>
+      <ListChild isActive={loc.pathname == "/photography"} to={"/photography"}>
+        Photography
+      </ListChild>
+      <ListChild isActive={loc.pathname == "/contact"} to={"/contact"}>
+        Contact
+      </ListChild>
     </Nav>
   );
 }
@@ -28,11 +38,13 @@ const Nav = styled.nav`
 
   ${({ theme }) => theme.view.mobile} {
     flex-direction: row;
+    justify-content: space-around;
     grid-row: 1;
+    font-size: ${({ theme }) => theme.fontSize.sm};
   }
 `;
 
-const ListChild = styled.div`
+const ListChild = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,9 +52,11 @@ const ListChild = styled.div`
   height: ${({ theme }) => theme.nav.height};
   cursor: pointer;
   width: 100%;
+  text-decoration: none;
   letter-spacing: 1px;
   transition: background-color 0.2s ease, color 0.2s ease;
   box-sizing: border-box;
+  color: ${({ theme }) => theme.colors.white};
 
   ${({ isActive }) =>
     isActive &&

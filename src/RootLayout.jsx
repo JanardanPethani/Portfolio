@@ -28,6 +28,7 @@ const RootLayoutWrapper = styled.div`
 export const Content = styled.div`
   grid-area: content;
   padding: 0px 30px;
+  height: 100%;
 
   ${({ theme }) => theme.view.mobile} {
     padding: 10px 5vw;

@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 function Footer() {
-  return <FooterWrapper>In progress with 💖 by Janardan Pethani</FooterWrapper>;
+  return (
+    <FooterWrapper>
+      In progress <FooterImg src="./images/work.gif" alt="work" />
+    </FooterWrapper>
+  );
 }
 
 const FooterWrapper = styled.div`
@@ -17,6 +21,11 @@ const FooterWrapper = styled.div`
   ${({ theme }) => theme.view.mobile} {
     grid-column: 1;
   }
+`;
+
+const FooterImg = styled.img`
+  height: 50%;
+  margin-left: 10px;
 `;
 
 export default Footer;

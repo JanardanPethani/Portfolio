@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const HomeWrapper = styled.div``;
+export const HomeWrapper = styled.div`
+  height: 100%;
+`;
 
 export const IntroWrapper = styled.div`
   display: grid;
@@ -8,6 +10,7 @@ export const IntroWrapper = styled.div`
   gap: 10px;
   margin: 20px 0px;
   grid-template-columns: 2fr 1fr;
+  height: inherit;
 
   ${({ theme }) => theme.view.mobile} {
     grid-template-columns: 1fr;
