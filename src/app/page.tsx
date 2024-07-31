@@ -1,3 +1,9 @@
+import Name from "@/components/Name/Name";
+
 export default function Home() {
-  return <main>Hi There, Currently this site is in progress...</main>;
+  return (
+    <>
+      <Name />
+    </>
+  );
 }

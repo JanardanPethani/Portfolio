@@ -53,9 +53,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        fontFamily: {
-          sans: { "var(--font-sans)": fontFamily.sans },
-        },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        akshar: ["var(--font-akshar)"],
       },
       borderRadius: {
         lg: "var(--radius)",
