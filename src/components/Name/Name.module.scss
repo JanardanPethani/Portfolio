@@ -1,47 +1,62 @@
 .character {
   display: inline-flex;
   flex-wrap: nowrap;
-  padding: 1rem 1rem 0.5rem;
-  letter-spacing: 4px;
+  padding: 1rem 1rem 0.7rem;
   cursor: pointer;
-  transition: transform 0.1s ease-in-out, text-shadow 0.2s ease-in-out;
+  scale: 1;
+  transition: scale 0.2s ease-in-out, transform 0.1s ease-in,
+    text-shadow 0.2s ease-in-out;
   text-transform: capitalize;
   background: hsl(var(--background));
   position: relative;
   border: 1px solid hsl(var(--foreground));
   border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
 }
 
-// Hover animation
+@media (max-width: 1024px) {
+  .character {
+    padding: 0.5rem;
+    width: 40px;
+  }
+}
+
+// 3D Hover animation
 // --- start ---
 .character:has(+ .character + .character:hover) {
-  transform: scale(1.05) rotateY(-30deg) translateX(15px);
-  text-shadow: 3px 0px 5px hsl(var(--text-shadow));
-  box-shadow: 3px 0px 5px hsl(var(--foreground));
+  scale: 1.05;
+  transform: rotateY(-30deg) translateX(10px);
+  text-shadow: 3px 1px 5px hsl(var(--text-shadow));
+  box-shadow: 3px 1px 5px hsl(var(--foreground));
 }
 
 .character:has(+ .character:hover) {
-  transform: scale(1.08) rotateY(-45deg) translateX(5px);
-  text-shadow: 5px 0px 7px hsl(var(--text-shadow));
-  box-shadow: 5px 0px 7px hsl(var(--foreground));
+  scale: 1.08;
+  transform: rotateY(-45deg) translateX(3px);
+  text-shadow: 5px 1px 7px hsl(var(--text-shadow));
+  box-shadow: 5px 1px 7px hsl(var(--foreground));
 }
 
 .character:hover {
-  transform: scale(1.15);
-  text-shadow: 0px 0px 9px hsl(var(--text-shadow));
-  box-shadow: 0px 0px 9px hsl(var(--foreground));
+  scale: 1.15;
+  text-shadow: 0px 1px 9px hsl(var(--text-shadow));
+  box-shadow: 0px 1px 9px hsl(var(--foreground));
   z-index: 1;
 }
 
 .character:hover + * {
-  transform: scale(1.08) rotateY(45deg) translateX(-5px);
-  text-shadow: -5px 0px 7px hsl(var(--text-shadow));
-  box-shadow: -5px 0px 7px hsl(var(--foreground));
+  scale: 1.08;
+  transform: rotateY(45deg) translateX(-3px);
+  text-shadow: -5px 1px 7px hsl(var(--text-shadow));
+  box-shadow: -5px 1px 7px hsl(var(--foreground));
 }
 
 .character:hover + .character + * {
-  transform: scale(1.05) rotateY(30deg) translateX(-15px);
-  text-shadow: -3px 0px 5px hsl(var(--text-shadow));
-  box-shadow: -3px 0px 5px hsl(var(--foreground));
+  scale: 1.05;
+  transform: rotateY(30deg) translateX(-10px);
+  text-shadow: -3px 1px 5px hsl(var(--text-shadow));
+  box-shadow: -3px 1px 5px hsl(var(--foreground));
 }
 // --- end ---
