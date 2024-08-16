@@ -15,6 +15,14 @@ const fontAkshar = FontAkshar({
 export const metadata: Metadata = {
   title: "Janardan Pethani",
   description: "A fullstack developer.",
+  openGraph: {
+    title: "Janardan Pethani",
+    description: "A fullstack developer.",
+    url: "https://janardanpethani.in/",
+    type: 'website',
+    image: "https://www.notion.so/front-static/meta/default.png",
+    site_name: 'Janardan Pethani'
+  },
 };
 
 export default function RootLayout({
