@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "A fullstack developer.",
     url: "https://janardanpethani.in/",
     type: 'website',
-    image: "https://www.notion.so/front-static/meta/default.png",
+    images: "https://www.notion.so/front-static/meta/default.png",
     site_name: 'Janardan Pethani'
   },
 };
