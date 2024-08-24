@@ -20,6 +20,13 @@ export const metadata: Metadata = {
     description: "A fullstack developer.",
     url: "https://janardanpethani.in",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/diqi8yegg/image/upload/v1724481024/home_profile_jboj56.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
   },
 };
 
