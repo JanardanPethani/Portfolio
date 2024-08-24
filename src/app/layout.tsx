@@ -18,9 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Janardan Pethani",
     description: "A fullstack developer.",
-    url: "https://janardanpethani.in/",
-    type: 'website',
-    images: "https://www.notion.so/front-static/meta/default.png"
+    url: "https://janardanpethani.in",
+    type: "website",
   },
 };
 

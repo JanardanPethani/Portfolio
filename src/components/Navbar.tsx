@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 import {
   NavigationMenu,
@@ -28,6 +29,7 @@ const MENUS = [
 
 const NavBar = () => {
   const { setTheme } = useTheme();
+  const path = usePathname();
 
   return (
     <>
@@ -39,7 +41,8 @@ const NavBar = () => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    "hover:backdrop-blur-sm"
+                    "hover:backdrop-blur-sm",
+                    path === menu.path && "border-b-2 border-primary"
                   )}
                 >
                   {menu.title}
