@@ -40,7 +40,7 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "bg-background font-sans antialiased",
+          "bg-background font-sans antialiased relative",
           fontSans.variable,
           fontAkshar.variable
         )}
