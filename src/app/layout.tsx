@@ -15,6 +15,14 @@ const fontAkshar = FontAkshar({
 export const metadata: Metadata = {
   title: "Janardan Pethani",
   description: "A fullstack developer.",
+  keywords: [
+    "Full Stack developer",
+    "ReactJs",
+    "NextJs",
+    "AWS",
+    "NodeJS",
+    "Software Developer",
+  ],
   openGraph: {
     title: "Janardan Pethani",
     description: "A fullstack developer.",

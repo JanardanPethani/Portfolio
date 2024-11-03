@@ -87,7 +87,7 @@ const RotatingText = ({
             size={0.6}
             height={0.2}
             curveSegments={32}
-            position={[2.2, -0.2, 0]}
+            position={[2.2, -0.7, 0]}
             lineHeight={0.6}
           >
             {"Janardan \n  Pethani"}
@@ -99,7 +99,7 @@ const RotatingText = ({
             size={0.7}
             height={0.3}
             curveSegments={32}
-            position={[0, -1, 0]}
+            position={[0, -1.5, 0]}
           >
             Janardan Pethani
             <meshStandardMaterial color={materialColor} />
@@ -121,7 +121,7 @@ const Name3D = () => {
   }, [theme]);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "22vh" }}>
+    <div style={{ position: "relative", width: "100%", height: "20vh" }}>
       <Canvas style={{ touchAction: "none" }} ref={canvasRef}>
         <Suspense fallback={null}>
           <OrthographicCamera makeDefault position={[0, 0, 5]} zoom={80} />
