@@ -76,7 +76,7 @@ const InteractiveFace = () => {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [handleMouseMove]);
 
   useEffect(() => {
     setSvgColors({

@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils";
 const MENUS = [
   { title: "Home", path: "/" },
   { title: "Experience", path: "/experience" },
-  { title: "Blog", path: "/blog" },
+  { title: "Blogs", path: "/blog-list" },
 ];
 
 const NavBar = () => {
