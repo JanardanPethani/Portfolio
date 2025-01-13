@@ -1,87 +1,79 @@
-import TextSection from "@/components/Blog/TextSection";
-import CodeSection from "@/components/Blog/CodeSection";
-import ImageSection from "@/components/Blog/ImageSection";
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
-import VideoSection from "@/components/Blog/VideoSection";
 
 export const blogData = [
   {
-    slug: "nextjs-features",
-    title: "Exploring Next.js Features [For Demo Purpose]",
-    publishDate: "2023-10-15",
-    categories: ["Next.js", "JavaScript", "Web Development"],
+    slug: "portfolio-tech-stack",
+    title: "Building My Portfolio with Modern Web Technologies",
+    publishDate: "2025-12-01",
+    categories: ["Next.js", "React", "TailwindCSS", "TypeScript"],
     content: (
-      <div>
-        <TitleSection>Introduction</TitleSection>
-        <DetailSection>
-          Next.js is a powerful React framework that enables developers to build
-          fast and user-friendly web applications. In this blog post, we will
-          explore some of the key features of Next.js.
-        </DetailSection>
-        <TitleSection>File-based Routing</TitleSection>
-        <DetailSection>
-          Next.js uses a file-based routing system, which means that the
-          structure of your files and folders determines the routes of your
-          application. This makes it easy to create and manage routes.
-        </DetailSection>
-        <CodeSection
-          language="javascript"
-          code={`// pages/index.js
-export default function Home() {
-  return <h1>Home Page</h1>;
-}
+      <div className="relative">
+        <div className="mx-auto">
+          <TitleSection>Introduction</TitleSection>
+          <DetailSection>
+            {`Welcome to a deep dive into the technology stack and features of my
+            portfolio website. I'll explain the key technologies and design
+            decisions that went into creating this modern, responsive web
+            application.`}
+          </DetailSection>
 
-// pages/about.js
-export default function About() {
-  return <h1>About Page</h1>;
-}`}
-        />
-        <TitleSection>Server-side Rendering (SSR)</TitleSection>
-        <DetailSection>
-          Next.js supports server-side rendering out of the box. This means that
-          you can render your React components on the server and send the HTML
-          to the client, resulting in faster load times and better SEO.
-        </DetailSection>
-        <CodeSection
-          language="javascript"
-          code={`// pages/index.js
-export async function getServerSideProps() {
-  // Fetch data from an API
-  const res = await fetch('https://api.example.com/data');
-  const data = await res.json();
+          <TitleSection>Core Technologies</TitleSection>
+          <DetailSection>
+            <h6>The portfolio is built with a powerful modern stack:</h6>
+            <ul className="list-disc list-inside ml-4">
+              <li>Next.js 14 - For server-side rendering and routing</li>
+              <li>React - For component-based UI development</li>
+              <li>
+                TypeScript - For type safety and better developer experience
+              </li>
+              <li>TailwindCSS - For responsive and customizable styling</li>
+            </ul>
+          </DetailSection>
 
-  return { props: { data } };
-}
+          <TitleSection>UI Components and Styling</TitleSection>
+          <DetailSection>
+            {`The UI is built using a combination of custom components and Tailwind
+            CSS for styling. I've implemented dark mode support and responsive
+            design patterns throughout the application.`}
+          </DetailSection>
 
-export default function Home({ data }) {
-  return <div>{JSON.stringify(data)}</div>;
-}`}
-        />
-        <TitleSection>Image Optimization</TitleSection>
-        <DetailSection>
-          Next.js provides built-in image optimization, which automatically
-          optimizes images for faster load times. This feature includes support
-          for modern image formats like WebP.
-        </DetailSection>
-        <TitleSection>Video Reference</TitleSection>
-        <DetailSection>
-          Here is a video reference to learn more about Next.js features.
-        </DetailSection>
-        <VideoSection
-          src="https://www.youtube.com/embed/1WmNXEVia8I"
-          title="Next.js Crash Course"
-        />
-        <DetailSection>Credits: Traversy Media</DetailSection>
-        <TitleSection>Conclusion</TitleSection>
-        <DetailSection>
-          Next.js offers a wide range of features that make it a great choice
-          for building modern web applications. Whether you need server-side
-          rendering, static site generation, or API routes, Next.js has you
-          covered.
-        </DetailSection>
+          <TitleSection>Features and Functionality</TitleSection>
+          <DetailSection>
+            <h6>Key features of the portfolio include:</h6>
+            <ul className="list-disc list-inside ml-4">
+              <li>Blog system with markdown support</li>
+              <li>Dark/Light theme switching</li>
+              <li>Responsive design</li>
+              <li>Category filtering and search functionality</li>
+              <li>Dynamic routing with Next.js</li>
+              <li>Smooth animations with Framer Motion</li>
+            </ul>
+          </DetailSection>
+
+          <TitleSection>Performance and Optimization</TitleSection>
+          <DetailSection>
+            <h6>
+              The application is optimized for performance using Next.js&apos;s
+              built-in features:
+            </h6>
+            <ul className="list-disc list-inside ml-4">
+              <li>Server-side rendering for better SEO</li>
+              <li>Image optimization</li>
+              <li>Code splitting</li>
+              <li>Static site generation where applicable</li>
+            </ul>
+          </DetailSection>
+
+          <TitleSection>Conclusion</TitleSection>
+          <DetailSection>
+            {`This portfolio showcases not just my projects, but also my ability to
+            work with modern web technologies and implement best practices in web
+            development. Feel free to explore the various sections and features
+            I've implemented.`}
+          </DetailSection>
+        </div>
       </div>
     ),
   },
-  // Add more blog posts here
 ];

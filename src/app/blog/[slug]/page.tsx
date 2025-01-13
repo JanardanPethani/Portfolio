@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import Head from "next/head";
 import BlogLayout from "@/components/Blog/BlogLayout";
+import BlogContainer from "@/components/Blog/BlogContainer";
 import { blogData } from "@/lib/blog-data";
 
 const BlogPost = () => {
@@ -30,14 +31,14 @@ const BlogPost = () => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={`Read about ${post.title}`} />
       </Head>
-      <div className="container mx-auto py-12 px-4 md:px-8 lg:px-16">
+      <BlogContainer>
         <BlogLayout
           title={post.title}
           publishDate={post.publishDate}
           categories={post.categories}
           content={post.content}
         />
-      </div>
+      </BlogContainer>
     </>
   );
 };

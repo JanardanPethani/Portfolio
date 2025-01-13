@@ -17,9 +17,8 @@ export const ExperienceCard = ({ project }: { project: Project }) => {
 
         {/* Card Content */}
         <motion.div
-          className="relative p-6 rounded-lg border bg-card/50 backdrop-blur-sm hover:bg-card/80 
-                     text-card-foreground shadow-lg transition-all duration-300 h-full
-                     hover:shadow-primary/10 hover:shadow-xl"
+          className="relative p-6 rounded-lg border bg-card/50 backdrop-blur-sm 
+                     text-card-foreground shadow-lg transition-all duration-300 h-full"
         >
           {/* Project Header */}
           <div className="mb-4">
@@ -42,7 +41,7 @@ export const ExperienceCard = ({ project }: { project: Project }) => {
               <motion.li
                 key={i}
                 initial={{ opacity: 0.5 }}
-                whileInView={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -59,7 +58,7 @@ export const ExperienceCard = ({ project }: { project: Project }) => {
                 className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary 
                          hover:bg-primary/20 transition-colors duration-300"
                 initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
               >
                 {tech}

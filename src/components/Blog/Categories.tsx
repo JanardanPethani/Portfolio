@@ -6,7 +6,7 @@ interface CategoriesProps {
 
 const Categories: React.FC<CategoriesProps> = ({ categories }) => {
   return (
-    <div className="flex space-x-2">
+    <div className="flex justify-center space-x-2 flex-wrap gap-2">
       {categories.map((category) => (
         <span
           key={category}

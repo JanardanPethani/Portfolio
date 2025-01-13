@@ -6,7 +6,7 @@ interface BlogTitleProps {
 
 const BlogTitle: React.FC<BlogTitleProps> = ({ title }) => {
   return (
-    <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+    <h1 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 text-center py-4 md:py-8">
       {title}
     </h1>
   );
