@@ -15,14 +15,7 @@ const fontAkshar = FontAkshar({
 export const metadata: Metadata = {
   title: "Janardan Pethani",
   description: "A fullstack developer.",
-  keywords: [
-    "Full Stack developer",
-    "ReactJs",
-    "NextJs",
-    "AWS",
-    "NodeJS",
-    "Software Developer",
-  ],
+  keywords: ["Full Stack developer", "ReactJs", "NextJs", "AWS", "NodeJS", "Software Developer"],
   openGraph: {
     title: "Janardan Pethani",
     description: "A fullstack developer.",
@@ -46,21 +39,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body
-        className={cn(
-          "bg-background font-sans antialiased relative",
-          fontSans.variable,
-          fontAkshar.variable
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={cn("bg-background font-sans antialiased relative", fontSans.variable, fontAkshar.variable)}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavBar />
-          <main className="container">{children}</main>
+          <main id="main" className="container">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

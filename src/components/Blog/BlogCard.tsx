@@ -1,12 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import LinkTransition from "../LinkTransition";
 
 interface BlogCardProps {
   blog: {
@@ -19,12 +13,10 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
-    <Link href={`/blog/${blog.slug}`}>
+    <LinkTransition href={`/blog/${blog.slug}`}>
       <Card className="hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
         <CardContent className="p-4">
-          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {blog.title}
-          </CardTitle>
+          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{blog.title}</CardTitle>
           <CardDescription className="text-sm text-gray-500 dark:text-gray-400 mb-4">
             {blog.publishDate}
           </CardDescription>
@@ -40,7 +32,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           </div>
         </CardContent>
       </Card>
-    </Link>
+    </LinkTransition>
   );
 };
 
