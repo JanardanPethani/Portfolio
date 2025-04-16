@@ -15,14 +15,16 @@ const BlogList = () => {
 
   const [categories, setCategories] = useState<string[]>(selectedCategories);
 
-  const allCategories = Array.from(new Set(blogData.flatMap((blog) => blog.categories)));
+  const allCategories = Array.from(
+    new Set(blogData.flatMap((blog) => blog.categories))
+  );
 
   const filteredBlogs = blogData.filter(
     (blog) =>
       blog.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (categories.length === 0 || categories.some((category) => blog.categories.includes(category)))
+      (categories.length === 0 ||
+        categories.some((category) => blog.categories.includes(category)))
   );
-  console.log("🚀 ~ BlogList ~ filteredBlogs:", blogData);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const search = e.target.value;
@@ -54,7 +56,11 @@ const BlogList = () => {
           onChange={handleSearchChange}
           className="flex-1"
         />
-        <CategoryFilter categories={allCategories} selectedCategories={categories} onChange={handleCategoryChange} />
+        <CategoryFilter
+          categories={allCategories}
+          selectedCategories={categories}
+          onChange={handleCategoryChange}
+        />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredBlogs.map((blog) => (
