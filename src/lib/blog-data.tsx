@@ -17,7 +17,7 @@ export const blogData = [
         <div className="mx-auto">
           <TitleSection>Introduction</TitleSection>
           <DetailSection>
-            {`JavaScript's prototype system is one of its most powerful features, but it can be confusing to understand the difference between __proto__ and prototype. In this post, we'll explore both concepts with clear examples and deep insights into how they work.`}
+            {`JavaScript&apos;s prototype system is one of its most powerful features, but it can be confusing to understand the difference between __proto__ and prototype. In this post, we&apos;ll explore both concepts with clear examples and deep insights into how they work.`}
           </DetailSection>
 
           <TitleSection>What is a Prototype?</TitleSection>
@@ -32,7 +32,7 @@ export const blogData = [
 
           <TitleSection>The Basics</TitleSection>
           <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            <div>Let's start with the fundamental concepts:</div>
+            <div>Let&apos;s start with the fundamental concepts:</div>
             <ul className="list-disc list-inside ml-4">
               <li><strong>prototype</strong> is a property of constructor functions. It defines the properties and methods that will be shared by all instances of the constructor.</li>
               <li><strong>__proto__</strong> is a property of <strong>objects</strong> that points to their prototype. It is the actual link between objects in the prototype chain.</li>
@@ -44,7 +44,7 @@ export const blogData = [
 
           <TitleSection>Simple Example</TitleSection>
           <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            <div>Let's look at a simple example to understand the relationship:</div>
+            <div>Let&apos;s look at a simple example to understand the relationship:</div>
           </div>
           <CodeSection
             language="javascript"
@@ -55,7 +55,7 @@ function Person(name) {
 
 // Adding a method to the prototype
 Person.prototype.sayHello = function() {
-  console.log(\`Hello, I'm \${this.name}\`);
+  console.log(\`Hello, I&apos;m \${this.name}\`);
 };
 
 // Creating an instance
@@ -63,7 +63,7 @@ const person = new Person('John');
 
 // The relationship between __proto__ and prototype
 console.log(person.__proto__ === Person.prototype); // true
-console.log(person.sayHello()); // "Hello, I'm John"`}
+console.log(person.sayHello()); // "Hello, I&apos;m John"`}
           />
 
           <TitleSection>Understanding the Chain</TitleSection>
@@ -81,7 +81,7 @@ console.log(person.sayHello()); // "Hello, I'm John"`}
 
           <TitleSection>Complex Example</TitleSection>
           <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            <div>Let's explore a more complex example with inheritance:</div>
+            <div>Let&apos;s explore a more complex example with inheritance:</div>
           </div>
           <CodeSection
             language="javascript"
@@ -173,7 +173,7 @@ dog.bark(); // "Woof!"`}
 
           <TitleSection>Class-based Inheritance</TitleSection>
           <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            <div>It's important to note that class-based inheritance in JavaScript is implemented on top of the prototype-based delegation. When you use the <code>class</code> keyword, it's essentially syntactic sugar that:</div>
+            <div>It&apos;s important to note that class-based inheritance in JavaScript is implemented on top of the prototype-based delegation. When you use the <code>class</code> keyword, it&apos;s essentially syntactic sugar that:</div>
             <ul className="list-disc list-inside ml-4">
               <li>Creates a constructor function</li>
               <li>Sets up the prototype chain</li>
@@ -184,7 +184,7 @@ dog.bark(); // "Woof!"`}
 
           <TitleSection>Conclusion</TitleSection>
           <DetailSection>
-            {`Understanding the difference between __proto__ and prototype is crucial for working with JavaScript's object-oriented features. While __proto__ represents the actual prototype chain link, prototype is used to define shared properties and methods for all instances of a constructor function. This prototype-based inheritance system is what makes JavaScript so flexible and powerful.`}
+            {`Understanding the difference between __proto__ and prototype is crucial for working with JavaScript&apos;s object-oriented features. While __proto__ represents the actual prototype chain link, prototype is used to define shared properties and methods for all instances of a constructor function. This prototype-based inheritance system is what makes JavaScript so flexible and powerful.`}
           </DetailSection>
 
           <TitleSection>References</TitleSection>
@@ -339,7 +339,7 @@ dog.bark(); // "Woof!"`}
           <TitleSection>Introduction</TitleSection>
           <DetailSection>
             {`Welcome to a deep dive into the technology stack and features of my
-            portfolio website. I'll explain the key technologies and design
+            portfolio website. I&apos;ll explain the key technologies and design
             decisions that went into creating this modern, responsive web
             application.`}
           </DetailSection>
@@ -360,7 +360,7 @@ dog.bark(); // "Woof!"`}
           <TitleSection>UI Components and Styling</TitleSection>
           <DetailSection>
             {`The UI is built using a combination of custom components and Tailwind
-            CSS for styling. I've implemented dark mode support and responsive
+            CSS for styling. I&apos;ve implemented dark mode support and responsive
             design patterns throughout the application.`}
           </DetailSection>
 
@@ -396,7 +396,7 @@ dog.bark(); // "Woof!"`}
             {`This portfolio showcases not just my projects, but also my ability to
             work with modern web technologies and implement best practices in web
             development. Feel free to explore the various sections and features
-            I've implemented.`}
+            I&apos;ve implemented.`}
           </DetailSection>
         </div>
       </div>
