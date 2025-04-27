@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: blog.publishDate,
       authors: ["Janardan Pethani"],
-      // url: `https://yourwebsite.com/blog/${blog.slug}`,
+      url: `https://janardanpethani.com/blog/${blog.slug}`,
     },
     twitter: {
       card: "summary_large_image",
