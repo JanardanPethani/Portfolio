@@ -38,7 +38,7 @@ export const blogData = [
               <li><strong>__proto__</strong> is a property of <strong>objects</strong> that points to their prototype. It is the actual link between objects in the prototype chain.</li>
             </ul>
             <div className="mt-4">
-              According to the ECMAScript specification, every object in JavaScript has an internal `[[Prototype]]` property, which is exposed to user-level code via the `__proto__` property. This is what makes JavaScript's prototype-based inheritance possible.
+              According to the ECMAScript specification, every object in JavaScript has an internal `[[Prototype]]` property, which is exposed to user-level code via the `__proto__` property. This is what makes JavaScript&apos;s prototype-based inheritance possible.
             </div>
           </div>
 
@@ -71,7 +71,7 @@ console.log(person.sayHello()); // "Hello, I&apos;m John"`}
             <div>When you try to access a property on an object, JavaScript follows this process:</div>
             <ol className="list-decimal list-inside ml-4">
               <li>Check if the property exists on the object itself</li>
-              <li>If not, check the object's __proto__ (which points to the constructor's prototype)</li>
+              <li>If not, check the object&apos;s __proto__ (which points to the constructor&apos;s prototype)</li>
               <li>Continue up the prototype chain until the property is found or the chain ends</li>
             </ol>
             <div className="mt-4">
@@ -140,7 +140,7 @@ dog.bark(); // "Woof!"`}
               [
                 "Purpose",
                 "Defines properties/methods shared by all instances",
-                "Points to the object's prototype (the actual link in the chain)",
+                "Points to the object&apos;s prototype (the actual link in the chain)",
               ],
               [
                 "Where is it found?",
