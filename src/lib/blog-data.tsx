@@ -17,7 +17,7 @@ export const blogData = [
         <div className="mx-auto">
           <TitleSection>Introduction</TitleSection>
           <DetailSection>
-            {`JavaScript&apos;s prototype system is one of its most powerful features, but it can be confusing to understand the difference between __proto__ and prototype. In this post, we&apos;ll explore both concepts with clear examples and deep insights into how they work.`}
+            JavaScript&apos;s prototype system is one of its most powerful features, but it can be confusing to understand the difference between __proto__ and prototype. In this post, we&apos;ll explore both concepts with clear examples and deep insights into how they work.
           </DetailSection>
 
           <TitleSection>What is a Prototype?</TitleSection>
@@ -184,7 +184,7 @@ dog.bark(); // "Woof!"`}
 
           <TitleSection>Conclusion</TitleSection>
           <DetailSection>
-            {`Understanding the difference between __proto__ and prototype is crucial for working with JavaScript&apos;s object-oriented features. While __proto__ represents the actual prototype chain link, prototype is used to define shared properties and methods for all instances of a constructor function. This prototype-based inheritance system is what makes JavaScript so flexible and powerful.`}
+            Understanding the difference between __proto__ and prototype is crucial for working with JavaScript&apos;s object-oriented features. While __proto__ represents the actual prototype chain link, prototype is used to define shared properties and methods for all instances of a constructor function. This prototype-based inheritance system is what makes JavaScript so flexible and powerful.
           </DetailSection>
 
           <TitleSection>References</TitleSection>
@@ -200,7 +200,6 @@ dog.bark(); // "Woof!"`}
                   JavaScript. The Core: 2nd Edition by Dmitry Soshnikov
                 </a>
               </li>
-              <li>ECMAScript Language Specification</li>
             </ul>
           </div>
         </div>
