@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Github, Linkedin } from "lucide-react";
 
 import InteractiveFace from "@/components/InteractiveFace";
 import Name3D from "@/components/Name/Name";
@@ -36,6 +37,27 @@ export default function Home() {
                 </svg>
               </span>
             </Link>
+          </div>
+
+          <div className="flex justify-center gap-2 mt-6">
+            <a
+              href="https://github.com/JanardanPethani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/janardan-pethani/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
           </div>
         </div>
       </div>
