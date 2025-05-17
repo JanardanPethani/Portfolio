@@ -121,12 +121,21 @@ const Name3D = () => {
   }, [theme]);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "20vh" }}>
+    <div className="relative w-full mt-10 md:mt-0 min-h-[150px] h-[22vw] md:h-[120px] overflow-visible">
       <Canvas style={{ touchAction: "none" }} ref={canvasRef}>
         <Suspense fallback={null}>
           <OrthographicCamera makeDefault position={[0, 0, 5]} zoom={80} />
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
+          {/* Base ambient light */}
+          <ambientLight intensity={0.4} />
+          {/* Directional light from top left, theme-based color */}
+          <directionalLight
+            position={[-5, 10, 5]}
+            intensity={0.7}
+            color={theme === "dark" ? "#6ec1e4" : "#ffb347"}
+            castShadow
+          />
+          {/* Original point light for highlights */}
+          <pointLight position={[10, 10, 10]} intensity={0.5} />
           <RotatingText
             materialColor={materialColor}
             canvasRef={canvasRef}
