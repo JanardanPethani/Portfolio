@@ -5,11 +5,12 @@ import BlogContainer from "@/components/Blog/BlogContainer";
 import { blogData } from "@/lib/blog-data";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const blog = blogData.find((post) => post.slug === params.slug);
+  const { slug } = await params;
+  const blog = blogData.find((post) => post.slug === slug);
 
   if (!blog) {
     return {
@@ -38,8 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPage({ params }: Props) {
-  const blog = blogData.find((post) => post.slug === params.slug);
+export default async function BlogPage({ params }: Props) {
+  const { slug } = await params;
+  const blog = blogData.find((post) => post.slug === slug);
 
   if (!blog) {
     notFound();
