@@ -12,7 +12,7 @@ export const blogData = [
     publishDate: "2025-06-01",
     categories: ["React", "Vite", "Library", "npm"],
     excerpt:
-      "A step-by-step guide to publishing your own React component as an npm package, starting from a Vite app. Real-world example: @janardanpethani/genmoji.",
+      "A step-by-step guide to publishing your own React component as a npm package, starting from a Vite app. Real-world example: @janardanpethani/genmoji.",
     content: (
       <div className="relative">
         <div className="mx-auto">
