@@ -24,7 +24,7 @@ const getMovementReaction = (
   factor: number = highMovementFactor
 ) => parseFloatToFixed(movement * factor);
 
-const InteractiveFace = () => {
+const InteractiveFace = ({ className = "" }: { className?: string }) => {
   const { resolvedTheme } = useTheme();
 
   const svgRef = useRef<SVGSVGElement>(null);
@@ -90,7 +90,7 @@ const InteractiveFace = () => {
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 532.58 642.85"
-      className="w-full h-72 overflow-visible"
+      className={className + " w-full h-72 overflow-visible"}
       stroke={svgColors.strokeColor}
       fill="transparent"
     >

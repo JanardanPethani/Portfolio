@@ -9,7 +9,7 @@ export const blogData = [
   {
     slug: "publish-react-npm-vite",
     title: "How to Publish a React Component as an npm Package Using Vite",
-    publishDate: "2025-06-01",
+    publishDate: "2025-05-29",
     categories: ["React", "Vite", "Library", "npm"],
     excerpt:
       "A step-by-step guide to publishing your own React component as a npm package, starting from a Vite app. Real-world example: @janardanpethani/genmoji.",

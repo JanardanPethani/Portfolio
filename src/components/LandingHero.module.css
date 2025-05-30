@@ -1,0 +1,57 @@
+.hero-underline {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 0%;
+  height: 2px;
+  background: hsl(var(--primary));
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-underline:hover,
+.hero-underline:focus {
+  color: hsl(var(--primary));
+}
+.hero-underline:hover::after,
+.hero-underline:focus::after {
+  width: 100%;
+}
+
+/* Glass shine effect */
+.hero-underline {
+  overflow: hidden;
+}
+.hero-underline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 2;
+  transform: skewX(-20deg);
+}
+.hero-underline:hover::before {
+  animation: glass-shine 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.shineOnce::before {
+  animation: glass-shine 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes glass-shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 120%;
+  }
+} 
