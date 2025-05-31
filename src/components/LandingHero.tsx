@@ -74,13 +74,13 @@ export default function LandingHero() {
     <>
       <CursorFollow />
       <main
-        className="flex flex-col md:flex-row items-center justify-center px-4 md:px-0 overflow-x-hidden"
+        className="flex flex-col md:flex-row items-center justify-center px-4 md:px-0 overflow-x-hidden py-8"
         style={{ minHeight: "calc(100vh - 50px)" }}
         onClick={handleMainClick}
       >
         {/* Left Side: Interactive SVG */}
         <motion.div
-          className="flex-1 flex justify-center items-center h-[40vh] md:h-[70vh] w-full md:w-auto mb-8 md:mb-0"
+          className="flex-1 flex justify-center items-center min-h-[40vh] w-full md:h-[70vh] md:w-auto md:mb-0"
           initial="hidden"
           animate="visible"
           variants={leftVariants}
@@ -114,7 +114,7 @@ export default function LandingHero() {
               Janardan Pethani
             </span>
             <br />
-            <span className="text-primary text-base sm:text-lg md:text-xl font-medium opacity-70 mt-2 block">
+            <span className="text-primary text-base sm:text-lg md:text-xl font-medium opacity-70 mt-1 block">
               Full Stack Developer.
             </span>
           </motion.h1>
@@ -126,7 +126,7 @@ export default function LandingHero() {
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
-              <Github className="w-8 h-8" />
+              <Github className="w-7 md:w-8 h-7 md:h-8" />
             </a>
             <a
               href="https://www.linkedin.com/in/janardan-pethani/"
@@ -135,7 +135,7 @@ export default function LandingHero() {
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-8 h-8" />
+              <Linkedin className="w-7 md:w-8 h-7 md:h-8" />
             </a>
           </div>
         </motion.div>
