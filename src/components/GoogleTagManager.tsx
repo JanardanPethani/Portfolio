@@ -16,12 +16,21 @@ interface GTMProps {
 
 export default function GoogleTagManager({ gtmId }: GTMProps) {
   useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() {
-      window.dataLayer.push(arguments);
+    const initializeGTM = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", gtmId);
     };
-    window.gtag("js", new Date());
-    window.gtag("config", gtmId);
+
+    if (document.readyState === "complete") {
+      initializeGTM();
+    } else {
+      window.addEventListener("load", initializeGTM);
+      return () => window.removeEventListener("load", initializeGTM);
+    }
   }, [gtmId]);
 
   return (
@@ -29,6 +38,7 @@ export default function GoogleTagManager({ gtmId }: GTMProps) {
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}`}
+        strategy="afterInteractive"
       />
     </>
   );

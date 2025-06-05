@@ -46,7 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn(
           "bg-background font-sans antialiased relative",
