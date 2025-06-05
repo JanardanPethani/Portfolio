@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import GoogleTagManager from "@/components/GoogleTagManager";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 const fontAkshar = FontAkshar({
@@ -15,7 +16,14 @@ const fontAkshar = FontAkshar({
 export const metadata: Metadata = {
   title: "Janardan Pethani",
   description: "A fullstack developer.",
-  keywords: ["Full Stack developer", "ReactJs", "NextJs", "AWS", "NodeJS", "Software Developer"],
+  keywords: [
+    "Full Stack developer",
+    "ReactJs",
+    "NextJs",
+    "AWS",
+    "NodeJS",
+    "Software Developer",
+  ],
   openGraph: {
     title: "Janardan Pethani",
     description: "A fullstack developer.",
@@ -39,14 +47,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("bg-background font-sans antialiased relative", fontSans.variable, fontAkshar.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body
+        className={cn(
+          "bg-background font-sans antialiased relative",
+          fontSans.variable,
+          fontAkshar.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NavBar />
           <main id="main" className="container">
             {children}
           </main>
         </ThemeProvider>
       </body>
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID!}
+      />
     </html>
   );
 }
