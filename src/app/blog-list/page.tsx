@@ -46,8 +46,7 @@ const BlogList = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-4xl font-bold mb-4">Blog</h1>
+    <div className="md:container mx-auto py-8">
       <div className="flex items-center space-x-4 mb-8">
         <Input
           type="text"

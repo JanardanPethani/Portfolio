@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter as FontSans, Akshar as FontAkshar } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import GoogleTagManager from "@/components/GoogleTagManager";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 const fontAkshar = FontAkshar({

@@ -19,7 +19,7 @@ export async function GET() {
           endDate: "today",
         },
       ],
-      metrics: [{ name: "newUsers" }],
+      metrics: [{ name: "activeUsers" }],
     });
 
     const metrics = response.rows?.[0]?.metricValues || [];

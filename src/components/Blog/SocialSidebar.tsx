@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const SocialSidebar = () => {
   return (
-    <div className="rounded-lg flex justify-center gap-6 absolute w-full bottom-0 md:w-auto md:flex-col md:-right-10 md:bottom-1/3">
+    <div className="w-fit px-2 md:px-0 md:py-2 flex justify-center md:gap-2 absolute bottom-1 backdrop-blur-sm border border-white/20 rounded-full items-center md:w-auto md:flex-col md:-right-12 md:bottom-1/3">
       <a
         href="https://github.com/JanardanPethani"
         target="_blank"

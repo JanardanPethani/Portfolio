@@ -6,7 +6,7 @@ import { SquareArrowOutUpRight } from "lucide-react";
 
 export const ExperienceTimeline = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto pb-12 py-5">
       {experiences.map((company, companyIndex) => (
         <div key={companyIndex} className="mb-16 last:mb-0">
           {/* Company Header */}

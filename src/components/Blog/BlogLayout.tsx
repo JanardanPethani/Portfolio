@@ -18,7 +18,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
   content,
 }) => {
   return (
-    <div className=" text-gray-900 dark:text-gray-100 pb-5">
+    <div className=" text-gray-900 dark:text-gray-100 pb-10">
       <BlogTitle title={title} />
       <div className="flex flex-col md:flex-row gap-2 items-center md:justify-between mt-3">
         <PublishDate date={publishDate} />
