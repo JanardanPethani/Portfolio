@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import styles from "./LandingHero.module.css";
 import CursorFollow from "./CursorFollow";
+import TextHighlight from "./TextHighlight";
 
 const leftVariants = {
   hidden: { opacity: 0, x: -60 },
@@ -95,7 +96,7 @@ export default function LandingHero() {
           variants={rightVariants}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 text-left w-full break-words"
+            className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 text-left w-full break-words  text-center md:text-left"
             initial="hidden"
             animate="visible"
             variants={textVariants}
@@ -114,8 +115,8 @@ export default function LandingHero() {
               Janardan Pethani
             </span>
             <br />
-            <span className="text-primary text-base sm:text-lg md:text-xl font-medium opacity-70 mt-1 block">
-              Full Stack Developer.
+            <span className=" text-shadow-lg text-primary text-base sm:text-lg md:text-xl font-medium mt-2 block">
+              <TextHighlight>Full Stack Developer.</TextHighlight>
             </span>
           </motion.h1>
           <div className="flex gap-4 mt-6">
