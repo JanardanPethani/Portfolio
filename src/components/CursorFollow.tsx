@@ -1,24 +1,45 @@
 "use client";
 import { useTheme } from "next-themes";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const RECT_WIDTH = 110;
 const RECT_HEIGHT = 40;
 
 const CursorFollow: React.FC = () => {
   const { resolvedTheme } = useTheme();
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const circleRef = useRef<HTMLDivElement>(null);
+  const followerRef = useRef<HTMLDivElement>(null);
+  const mousePos = useRef({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPos({
-        x: e.clientX,
-        y: e.clientY,
-      });
+  const handleMouseMove = (e: MouseEvent) => {
+    mousePos.current = { x: e.clientX, y: e.clientY };
+  };
+
+  useGSAP(() => {
+    // Add mouse move listener
+    document.addEventListener("mousemove", handleMouseMove);
+
+    // GSAP animation loop using ticker for better performance
+    const animate = () => {
+      if (followerRef.current) {
+        gsap.to(followerRef.current, {
+          x: mousePos.current.x - 48,
+          y: mousePos.current.y - 48,
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+
+    // Use GSAP's ticker for optimized animation loop
+    gsap.ticker.add(animate);
+
+    // Cleanup function
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      gsap.ticker.remove(animate);
+    };
   }, []);
 
   const handleClick = () => {
@@ -32,12 +53,12 @@ const CursorFollow: React.FC = () => {
 
   return (
     <div
-      ref={circleRef}
+      ref={followerRef}
       onClick={handleClick}
       style={{
         position: "fixed",
-        left: pos.x,
-        top: pos.y,
+        top: "0",
+        left: 0,
         width: RECT_WIDTH,
         height: RECT_HEIGHT,
         borderRadius: "16px",
@@ -50,13 +71,12 @@ const CursorFollow: React.FC = () => {
         fontWeight: 500,
         fontSize: 12,
         textAlign: "center",
-        cursor: "pointer",
         zIndex: 50,
         pointerEvents: "auto",
         backdropFilter: "blur(8px)",
-        transition: "background 0.2s",
         userSelect: "none",
         mixBlendMode: "lighten",
+        cursor: "pointer",
       }}
       className="cursor-follow-rect hidden md:flex select-none"
       title="Go to Experience"
