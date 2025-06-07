@@ -19,6 +19,7 @@
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
+    "@rive-app/react-canvas": "^4.21.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.11",

@@ -96,28 +96,30 @@ export default function LandingHero() {
           variants={rightVariants}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 text-left w-full break-words  text-center md:text-left"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 w-full break-words text-center md:text-left"
             initial="hidden"
             animate="visible"
             variants={textVariants}
           >
-            <span
-              ref={shineRef}
-              className={`${styles.heroUnderline} ${
-                shineOnce ? styles.shineOnce : ""
-              } relative inline-block cursor-pointer transition-colors duration-300`}
-              style={{
-                WebkitTextStroke:
-                  resolvedTheme === "dark" ? "1px #fff" : "1px #222",
-                wordBreak: "break-word",
-              }}
-            >
-              Janardan Pethani
-            </span>
-            <br />
-            <span className=" text-shadow-lg text-primary text-base sm:text-lg md:text-xl font-medium mt-2 block">
-              <TextHighlight>Full Stack Developer.</TextHighlight>
-            </span>
+            <TextHighlight>
+              <span
+                ref={shineRef}
+                className={`${styles.heroUnderline} ${
+                  shineOnce ? styles.shineOnce : ""
+                } relative inline-block cursor-pointer transition-colors duration-300`}
+                style={{
+                  WebkitTextStroke:
+                    resolvedTheme === "dark" ? "1px #fff" : "1px #222",
+                  wordBreak: "break-word",
+                }}
+              >
+                Janardan Pethani
+              </span>
+              <br />
+              <span className="text-primary text-lg md:text-2xl font-medium mt-3 block text-shadow-[1px 1px 2px pink]">
+                Full Stack Developer.
+              </span>
+            </TextHighlight>
           </motion.h1>
           <div className="flex gap-4 mt-6">
             <a
