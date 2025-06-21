@@ -1,0 +1,9 @@
+echo "\033[1;34mRunning pre-commit checks...\033[0m"
+
+echo "\033[1;32mRunning tests...\033[0m"
+npm run test
+
+echo "\033[1;32mRunning lint-staged...\033[0m"
+npm run lint-staged
+
+echo "\033[1;32mPre-commit checks completed successfully.\033[0m"

@@ -78,6 +78,7 @@ export default function LandingHero() {
         className="flex flex-col md:flex-row items-center justify-center px-4 md:px-0 overflow-x-hidden py-8"
         style={{ minHeight: "calc(100vh - 50px)" }}
         onClick={handleMainClick}
+        data-testid="landing-hero-main"
       >
         {/* Left Side: Interactive SVG */}
         <motion.div
@@ -85,6 +86,7 @@ export default function LandingHero() {
           initial="hidden"
           animate="visible"
           variants={leftVariants}
+          data-testid="landing-hero-left"
         >
           <InteractiveFace className="h-[40vh] md:h-[70vh] w-auto max-w-[95vw] md:max-w-[90%] drop-shadow-xl" />
         </motion.div>
@@ -94,12 +96,14 @@ export default function LandingHero() {
           initial="hidden"
           animate="visible"
           variants={rightVariants}
+          data-testid="landing-hero-right"
         >
           <motion.h1
             className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 w-full break-words text-center md:text-left"
             initial="hidden"
             animate="visible"
             variants={textVariants}
+            data-testid="landing-hero-title"
           >
             <TextHighlight>
               <span
@@ -112,22 +116,27 @@ export default function LandingHero() {
                     resolvedTheme === "dark" ? "1px #fff" : "1px #222",
                   wordBreak: "break-word",
                 }}
+                data-testid="landing-hero-name"
               >
                 Janardan Pethani
               </span>
               <br />
-              <span className="text-primary text-lg md:text-2xl font-medium mt-3 block text-shadow-[1px 1px 2px pink]">
+              <span
+                className="text-primary text-lg md:text-2xl font-medium mt-3 block text-shadow-[1px 1px 2px pink]"
+                data-testid="landing-hero-role"
+              >
                 Full Stack Developer.
               </span>
             </TextHighlight>
           </motion.h1>
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 mt-6" data-testid="landing-hero-socials">
             <a
               href="https://github.com/JanardanPethani"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
+              data-testid="github-link"
             >
               <Github className="w-7 md:w-8 h-7 md:h-8" />
             </a>
@@ -137,6 +146,7 @@ export default function LandingHero() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
+              data-testid="linkedin-link"
             >
               <Linkedin className="w-7 md:w-8 h-7 md:h-8" />
             </a>
