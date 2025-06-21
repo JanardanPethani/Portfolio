@@ -54,7 +54,7 @@ jobs:
   netlify-deploy-prod:
     needs: run-linter-and-tests
     runs-on: ubuntu-latest
-    if: ${{ needs.run-linter-and-tests.results == 'success' }}
+    if: ${{ needs.run-linter-and-tests.result == 'success' }}
     steps:
       - name: "☁️ Checkout code"
         uses: actions/checkout@v4
@@ -89,3 +89,9 @@ jobs:
       - name: "🔄 Install dependencies"
         # why ci? because it's faster than install
         run: npm ci
+
+      - name: "🚀 Deploy to Netlify."
+        run: npx netlify deploy --dir=.next --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
