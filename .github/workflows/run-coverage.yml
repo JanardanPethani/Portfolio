@@ -11,14 +11,47 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout code
+      - name: "☁️ Checkout code"
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm install
+      - name: "⚙️ Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
 
-      - name: Run tests and coverage
+      - name: "📦 Cache Next.js build"
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-build-
+
+      - name: "📦 Cache node modules"
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: "📦 List the state of node modules"
+        continue-on-error: true
+        run: npm list
+
+      - name: "🔄 Install dependencies"
+        # why ci? because it's faster than install
+        run: npm ci
+
+      - name: "🧪 Run tests and coverage"
         run: npm run coverage
 
-      - name: Report coverage
+      - name: "📊 Report coverage"
         uses: davelosert/vitest-coverage-report-action@v2
