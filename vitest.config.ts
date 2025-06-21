@@ -5,6 +5,10 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   test: {
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json-summary", "html"],
+    },
     environment: "jsdom",
   },
   resolve: {
