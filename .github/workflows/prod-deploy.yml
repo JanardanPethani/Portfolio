@@ -1,0 +1,91 @@
+name: Run linter and tests on push
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  run-linter-and-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "☁️ Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "⚙️ Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: "📦 Cache Next.js build"
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-build-
+
+      - name: "📦 Cache node modules"
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: "🔄 Install dependencies"
+        # why ci? because it's faster than install
+        run: npm ci
+
+      - name: "🔍 Lint code"
+        run: npm run lint
+
+      - name: "🧪 Run tests"
+        run: npm test
+
+  netlify-deploy-prod:
+    needs: run-linter-and-tests
+    runs-on: ubuntu-latest
+    if: ${{ needs.run-linter-and-tests.results == 'success' }}
+    steps:
+      - name: "☁️ Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "⚙️ Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: "📦 Cache Next.js build"
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-build-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-build-
+
+      - name: "📦 Cache node modules"
+        id: cache-npm-prod
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: "🔄 Install dependencies"
+        # why ci? because it's faster than install
+        run: npm ci
