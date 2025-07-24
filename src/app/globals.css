@@ -183,4 +183,131 @@
   .animate-text-reveal {
     animation: text-reveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  /* Enhanced prose styles */
+  .prose {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    @apply font-bold text-gray-900 dark:text-gray-100;
+  }
+
+  .prose p {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+
+  .prose a {
+    @apply text-blue-600 dark:text-blue-400 no-underline hover:underline transition-colors duration-200;
+  }
+
+  .prose strong {
+    @apply font-semibold text-gray-900 dark:text-gray-100;
+  }
+
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm font-mono border border-gray-200 dark:border-gray-700;
+  }
+
+  .prose pre {
+    @apply bg-gray-900 dark:bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto border border-gray-200 dark:border-gray-700;
+  }
+
+  .prose pre code {
+    @apply bg-transparent text-gray-100 p-0 border-0;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 italic text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/20 py-2 rounded-r-lg;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply space-y-2;
+  }
+
+  .prose li {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .prose img {
+    @apply rounded-lg shadow-lg;
+  }
+
+  .prose table {
+    @apply w-full overflow-x-auto;
+  }
+
+  .prose th {
+    @apply text-left font-semibold text-gray-900 dark:text-gray-100;
+  }
+
+  .prose td {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  /* Syntax highlighting improvements */
+  .prose pre[class*="language-"] {
+    @apply bg-gray-900 dark:bg-gray-800 text-gray-100;
+  }
+
+  .prose code[class*="language-"] {
+    @apply bg-transparent text-gray-100;
+  }
+
+  /* Table responsiveness */
+  .prose table {
+    @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+  }
+
+  .prose thead {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  .prose tbody {
+    @apply divide-y divide-gray-200 dark:divide-gray-700;
+  }
+
+  .prose tr {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200;
+  }
+
+  .prose th,
+  .prose td {
+    @apply px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm;
+  }
 }

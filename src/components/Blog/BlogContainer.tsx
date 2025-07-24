@@ -9,10 +9,12 @@ interface BlogContainerProps {
 
 const BlogContainer = ({ children }: BlogContainerProps) => {
   return (
-    <div className="relative mx-auto max-w-4xl mt-2 md:mt-3 h-[calc(100dvh-65px)] border rounded-lg border-gray-200">
-      <div className="h-full overflow-y-auto rounded-lg shadow-lg bg-white dark:bg-gray-900 p-3 md:p-5">
-        {children}
+    <div className="relative mx-auto max-w-4xl md:max-w-5xl mt-2 md:mt-4 lg:mt-6 min-h-[calc(100dvh-80px)] px-2 md:px-4">
+      {/* Main content container */}
+      <div className="relative md:p-6 lg:p-8">
+        <div className="relative z-10">{children}</div>
       </div>
+
       <SocialSidebar />
     </div>
   );
