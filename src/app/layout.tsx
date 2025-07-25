@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter as FontSans, Akshar as FontAkshar } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+// import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -75,9 +75,9 @@ export default function RootLayout({
           </main>
         </ThemeProvider>
       </body>
-      <GoogleTagManager
+      {/* <GoogleTagManager
         gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID!}
-      />
+      /> */}
     </html>
   );
 }

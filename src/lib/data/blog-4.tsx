@@ -1,7 +1,14 @@
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
-import Table from "@/components/Blog/Table";
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TableCell,
+} from "@/components/Blog/Table";
 
 export const blog = {
   slug: "proto-vs-prototype",
@@ -170,36 +177,56 @@ export const blog = {
         </div>
 
         <TitleSection>Key Differences</TitleSection>
-        <Table
-          headers={["Aspect", "prototype", "__proto__"]}
-          rows={[
-            [
-              "What is it?",
-              "A property of constructor functions",
-              "A property of all objects (instances)",
-            ],
-            [
-              "Purpose",
-              "Defines properties/methods shared by all instances",
-              "Points to the object&apos;s prototype (the actual link in the chain)",
-            ],
-            [
-              "Where is it found?",
-              "On constructor functions (e.g., Person.prototype)",
-              "On all objects (e.g., person.__proto__)",
-            ],
-            [
-              "How is it used?",
-              "To add shared methods/properties for instances",
-              "To traverse the prototype chain for inheritance",
-            ],
-            [
-              "Best Practice",
-              "Use to define shared behavior",
-              "Avoid direct manipulation; use Object.getPrototypeOf/setPrototypeOf",
-            ],
-          ]}
-        />
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableHeader>Aspect</TableHeader>
+              <TableHeader>prototype</TableHeader>
+              <TableHeader>__proto__</TableHeader>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>What is it?</TableCell>
+              <TableCell>A property of constructor functions</TableCell>
+              <TableCell>A property of all objects (instances)</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Purpose</TableCell>
+              <TableCell>
+                Defines properties/methods shared by all instances
+              </TableCell>
+              <TableCell>
+                Points to the object&apos;s prototype (the actual link in the
+                chain)
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Where is it found?</TableCell>
+              <TableCell>
+                On constructor functions (e.g., Person.prototype)
+              </TableCell>
+              <TableCell>On all objects (e.g., person.__proto__)</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>How is it used?</TableCell>
+              <TableCell>
+                To add shared methods/properties for instances
+              </TableCell>
+              <TableCell>
+                To traverse the prototype chain for inheritance
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Best Practice</TableCell>
+              <TableCell>Use to define shared behavior</TableCell>
+              <TableCell>
+                Avoid direct manipulation; use
+                Object.getPrototypeOf/setPrototypeOf
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
 
         <TitleSection>Best Practices</TitleSection>
         <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">

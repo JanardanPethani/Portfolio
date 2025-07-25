@@ -1,54 +1,81 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Share2, Twitter, Facebook, Linkedin, Link } from "lucide-react";
 
-const SocialSidebar = () => {
+const SocialSidebar: React.FC = () => {
+  const handleShare = async (platform: string) => {
+    const url = window.location.href;
+    const title = document.title;
+
+    const shareUrls = {
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        url
+      )}&text=${encodeURIComponent(title)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        url
+      )}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        url
+      )}`,
+    };
+
+    if (platform === "copy") {
+      try {
+        await navigator.clipboard.writeText(url);
+        // You could add a toast notification here
+        console.log("Link copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy link:", err);
+      }
+    } else if (shareUrls[platform as keyof typeof shareUrls]) {
+      window.open(
+        shareUrls[platform as keyof typeof shareUrls],
+        "_blank",
+        "width=600,height=400"
+      );
+    }
+  };
+
   return (
-    <div className="w-fit px-2 md:px-0 md:py-2 flex justify-center md:gap-2 absolute bottom-1 backdrop-blur-sm border border-white/20 rounded-full items-center md:w-auto md:flex-col md:-right-12 md:bottom-1/3">
-      <a
-        href="https://github.com/JanardanPethani"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 rounded-full transition-colors duration-200 text-muted-foreground hover:text-foreground"
-      >
-        <Github className="w-6 h-6" />
-      </a>
+    <div className="fixed right-2 md:right-6 top-1/2 transform -translate-y-1/2 z-50 hidden xl:block">
+      <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl shadow-gray-500/10 dark:shadow-gray-900/50">
+        <div className="flex flex-col space-y-2 md:space-y-3">
+          {/* Share button */}
+          <button
+            onClick={() => handleShare("copy")}
+            className="p-2 md:p-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg md:rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/25"
+            title="Copy link"
+          >
+            <Link className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
 
-      <a
-        href="https://www.linkedin.com/in/janardan-pethani/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 rounded-full transition-colors duration-200 text-muted-foreground hover:text-foreground"
-      >
-        <Linkedin className="w-5 h-5" />
-      </a>
+          {/* Social media buttons */}
+          <button
+            onClick={() => handleShare("twitter")}
+            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            title="Share on Twitter"
+          >
+            <Twitter className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
 
-      <a
-        href="https://x.com/417cc73c4a4a415"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 rounded-full transition-colors duration-200 text-muted-foreground hover:text-foreground"
-      >
-        <svg
-          role="img"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="currentColor"
-        >
-          <title>X</title>
-          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-        </svg>
-      </a>
+          <button
+            onClick={() => handleShare("facebook")}
+            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            title="Share on Facebook"
+          >
+            <Facebook className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
 
-      <a
-        href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jpethani11@gmail.com"
-        target="_blank"
-        className="p-2 rounded-full transition-colors duration-200 text-muted-foreground hover:text-foreground"
-      >
-        <Mail className="w-5 h-5" />
-      </a>
+          <button
+            onClick={() => handleShare("linkedin")}
+            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            title="Share on LinkedIn"
+          >
+            <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
