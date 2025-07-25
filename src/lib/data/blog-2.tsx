@@ -1,4 +1,5 @@
 import TitleSection from "@/components/Blog/TitleSection";
+import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
 
@@ -9,6 +10,7 @@ export const blog = {
   categories: ["Next.js", "Google Analytics", "Tag Manager", "TypeScript"],
   excerpt:
     "A comprehensive guide to implementing Google Tag Manager in a Next.js application, including setup, configuration, and best practices for tracking user interactions.",
+  thumbnail: "/images/blog/blog-2.jpeg",
   content: (
     <div className="relative">
       <div className="mx-auto">

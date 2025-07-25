@@ -1,4 +1,5 @@
 import TitleSection from "@/components/Blog/TitleSection";
+import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 
 export const blog = {
@@ -8,6 +9,7 @@ export const blog = {
   categories: ["Next.js", "React", "TailwindCSS", "TypeScript"],
   excerpt:
     "A detailed look at the modern web technologies and design decisions behind my portfolio website, including Next.js, React, TypeScript, and TailwindCSS for creating a responsive and performant web application.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">

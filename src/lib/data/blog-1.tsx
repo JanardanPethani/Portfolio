@@ -1,6 +1,7 @@
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
+import ImageSection from "@/components/Blog/ImageSection";
 
 export const blog = {
   slug: "google-analytics-data-api-nextjs",
@@ -9,9 +10,17 @@ export const blog = {
   categories: ["Next.js", "Google Analytics", "Data API", "TypeScript"],
   excerpt:
     "A comprehensive guide to implementing Google Analytics Data API in a Next.js application, including server-side analytics data fetching and visitor count display.",
+  thumbnail: "/images/blog/blog-1.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">
+        <ImageSection
+          src="/images/blog/blog-1.jpg"
+          alt="Google Analytics Data API with Next.js"
+          width={1200}
+          height={630}
+        />
+
         <TitleSection>Introduction</TitleSection>
         <DetailSection>
           {`In this post, I'll share how I implemented the Google Analytics Data API in my Next.js portfolio website to fetch and display visitor analytics data.`}

@@ -1,4 +1,5 @@
 import TitleSection from "@/components/Blog/TitleSection";
+import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
 import {
@@ -17,6 +18,7 @@ export const blog = {
   categories: ["JavaScript", "OOP", "Prototypes"],
   excerpt:
     "A deep dive into the difference between __proto__ and prototype in JavaScript, with simple and complex examples to understand prototype inheritance.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">

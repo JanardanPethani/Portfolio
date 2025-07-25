@@ -1,4 +1,5 @@
 import TitleSection from "@/components/Blog/TitleSection";
+import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
 
@@ -9,6 +10,7 @@ export const blog = {
   categories: ["CSS", "Transitions", "Web API"],
   excerpt:
     "Enhance your page transitions using the new CSS view-transition API.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <TitleSection>Overview</TitleSection>

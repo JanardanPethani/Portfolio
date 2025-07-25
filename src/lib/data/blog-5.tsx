@@ -1,4 +1,5 @@
 import TitleSection from "@/components/Blog/TitleSection";
+import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 
 export const blog = {
@@ -9,6 +10,7 @@ export const blog = {
   categories: ["NX", "NestJS", "MySQL", "React", "Docker", "Full-Stack"],
   excerpt:
     "A comprehensive guide to creating a modern full-stack application using NX monorepo, NestJS backend, MySQL database, React frontend, and Docker containerization.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">
