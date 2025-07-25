@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
+    metadataBase: new URL("https://janardanpethani.com"),
     title: `${blog.title} | My Blog`,
     description: blog.excerpt || `Read about ${blog.title}`,
     keywords: blog.categories.join(", "),
