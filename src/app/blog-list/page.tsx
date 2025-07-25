@@ -112,7 +112,7 @@ const BlogList = () => {
                 onClick={() => {
                   router.push("/blog-list");
                 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
+                className="bg-blue-500 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-600 transition-all duration-300"
               >
                 Clear filters
               </button>

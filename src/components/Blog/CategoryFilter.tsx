@@ -22,7 +22,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
             onClick={() => onChange(category)}
             className={`flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
               isSelected
-                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
+                ? "bg-blue-500 text-white border border-blue-500"
                 : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
             }`}
           >

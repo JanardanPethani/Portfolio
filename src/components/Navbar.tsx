@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import LinkTransition from "./LinkTransition";
-import VisitorCount from "./VisitorCount";
+// import VisitorCount from "./VisitorCount";
 
 const MENUS = [
   { title: "Home", path: "/" },
@@ -53,7 +53,7 @@ const NavBar = () => {
       </NavigationMenu>
 
       <div className="fixed z-10 top-2 right-2 flex items-center gap-2">
-        <VisitorCount />
+        {/* <VisitorCount /> */}
 
         {/* Theme icon toggle */}
         {mounted && resolvedTheme && (

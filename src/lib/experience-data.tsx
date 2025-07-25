@@ -20,18 +20,23 @@ export const experiences: Company[] = [
   {
     name: "La Net Team Software Solution Pvt Ltd.",
     linkedInLink: "https://www.linkedin.com/company/lanetteamsurat",
-    period: "2020 - Present",
+    period: "Dec, 2020 - July, 2025",
     projects: [
       {
         name: "NICE Actimize",
         link: "https://www.niceactimize.com/",
         role: "Full Stack Developer",
-        period: "January 2024 – Present",
+        period: "January 2024 – July 2025",
         description: [
-          "Developed a customer schedule page using React, React Hook Form, TypeScript, RTK Query, MUI, Luxon, and Redux Toolkit, providing users with a robust platform to manage schedules efficiently.",
-          "Created a dynamic KYC form builder using the same tech stack, empowering users to customize KYC forms tailored to their needs, enhancing data collection and validation processes.",
-          "Integrated test cases for newly added features using React testing library and msw to mock the actual APIs.",
-          "Integrate luxon to Handle multiple time zones for the user.",
+          "Developing a customer schedule page using React, React Hook Form, TypeScript, RTK Query, MUI, Luxon, and Redux Toolkit, enabling efficient schedule management for users.",
+          "Creating a dynamic KYC form builder with the same tech stack, allowing users to customize KYC forms and improving data collection and validation.",
+          "Integrating test cases for new features using React Testing Library and msw to mock APIs for reliable testing.",
+          "Created and published NPM Component Library for internal use for multiple Front-end Apps.",
+          "Developing a chat interface for module-wise AI interactions with predefined suggestions to enhance user engagement.",
+          "Working on a new sales front-end by replicating the original app, processing data from CSV files within specified timelines.",
+          "Reviewing code for errors and identifying opportunities to optimize performance and improve software quality.",
+          "Collaborating with programming teams to monitor, debug, and resolve issues post-deployment, ensuring stable software releases.",
+          "Developing and releasing software updates that enhance UI/UX and add new functionalities aligned with evolving user needs.",
         ],
         technologies: [
           "React",
@@ -39,7 +44,11 @@ export const experiences: Company[] = [
           "RTK Query",
           "TypeScript",
           "Redux Toolkit",
-          "React testing library",
+          "React Testing Library",
+          "MSW",
+          "MUI",
+          "Luxon",
+          "NPM",
         ],
       },
       {
@@ -109,5 +118,11 @@ export const experiences: Company[] = [
         ],
       },
     ],
+  },
+  {
+    name: "InFocusP",
+    linkedInLink: "https://www.linkedin.com/company/infocusp",
+    period: "August 2025 – Present",
+    projects: [],
   },
 ];

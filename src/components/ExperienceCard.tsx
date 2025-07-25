@@ -6,66 +6,69 @@ import { SquareArrowOutUpRight } from "lucide-react";
 export const ExperienceCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group relative h-full"
+      transition={{ duration: 0.3 }}
+      className="group"
     >
-      <div className="relative h-full">
-        {/* Background Gradient Animation */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-lg animate-gradient" />
-
-        {/* Card Content */}
-        <motion.div
-          className="relative p-6 rounded-lg border bg-card/50 backdrop-blur-sm 
-                     text-card-foreground shadow-lg transition-all duration-300 h-full"
-        >
-          {/* Project Header */}
-          <div className="mb-4">
-            <div className="flex gap-2">
-              <h3 className="text-2xl font-bold font-akshar">{project.name}</h3>
-              {project.link && (
-                <a target="_blank" href={project.link}>
-                  <SquareArrowOutUpRight className="h-[1rem] w-[1rem] rotate-0 scale-100 mt-2" />
-                </a>
-              )}
-            </div>
-
-            <p className="text-md text-muted-foreground">{project.role}</p>
-            <p className="text-sm text-muted-foreground/80">{project.period}</p>
-          </div>
-
-          {/* Description */}
-          <ul className="list-disc list-inside mb-4 space-y-2">
-            {project.description.map((desc, i) => (
-              <motion.li
-                key={i}
-                initial={{ opacity: 0.5 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+      <div className="relative h-full p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-200 overflow-hidden">
+        {/* Project Header */}
+        <div className="mb-4">
+          <div className="flex items-start justify-between gap-3 mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-tight break-words flex-1 min-w-0">
+              {project.name}
+            </h3>
+            {project.link && (
+              <a
+                target="_blank"
+                href={project.link}
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-500 transition-colors flex-shrink-0 mt-0.5"
               >
-                {desc}
-              </motion.li>
-            ))}
-          </ul>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2 mt-auto">
-            {project.technologies.map((tech, i) => (
-              <motion.span
-                key={i}
-                className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary 
-                         hover:bg-primary/20 transition-colors duration-300"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                {tech}
-              </motion.span>
-            ))}
+                <SquareArrowOutUpRight className="h-4 w-4" />
+              </a>
+            )}
           </div>
-        </motion.div>
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 flex-wrap">
+            <span className="font-medium break-words">{project.role}</span>
+            <span className="hidden md:inline-block mx-1">|</span>
+            <span className="break-words">{project.period}</span>
+          </div>
+        </div>
+
+        {/* Description */}
+        <ul className="space-y-2 mb-4">
+          {project.description.map((desc, i) => (
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed flex items-start gap-2"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+              <span className="break-words hyphens-auto">{desc}</span>
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700"
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

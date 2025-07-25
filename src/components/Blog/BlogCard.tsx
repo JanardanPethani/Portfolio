@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
 import LinkTransition from "../LinkTransition";
 import { Calendar, ArrowRight } from "lucide-react";
+import { calculateReadingTime } from "@/lib/utils";
 
 interface BlogCardProps {
   blog: {
@@ -26,20 +27,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 
   return (
     <LinkTransition href={`/blog/${blog.slug}`}>
-      <Card className="group relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-gray-200/50 dark:border-gray-700/50 rounded-xl md:rounded-2xl hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transition-all duration-500 hover:-translate-y-1 md:hover:-translate-y-2 h-full flex flex-col backdrop-blur-sm">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Animated border */}
-        <div className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+      <Card className="group relative overflow-hidden bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl md:rounded-2xl hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 h-full flex flex-col">
         <CardContent className="p-4 md:p-6 flex flex-col h-full relative z-10">
           {/* Categories */}
           <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
             {blog.categories.slice(0, 2).map((category) => (
               <span
                 key={category}
-                className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-700 dark:text-blue-300 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-semibold border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-sm"
+                className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-semibold border border-blue-200 dark:border-blue-700"
               >
                 {category}
               </span>

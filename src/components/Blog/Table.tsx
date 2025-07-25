@@ -23,11 +23,7 @@ interface TableHeadProps {
 }
 
 const TableHead: React.FC<TableHeadProps> = ({ children }) => {
-  return (
-    <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
-      {children}
-    </thead>
-  );
+  return <thead className="bg-gray-50 dark:bg-gray-800">{children}</thead>;
 };
 
 interface TableBodyProps {
