@@ -5,6 +5,8 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { TooltipPortal } from "@radix-ui/react-tooltip";
 
 interface CodeSectionProps {
   language: string;
@@ -30,17 +32,26 @@ const CodeSectionDynamic: React.FC<CodeSectionProps> = ({ language, code }) => {
       </div>
 
       {/* Copy button */}
-      <button
-        onClick={handleCopy}
-        className="absolute top-3 md:top-4 right-3 md:right-4 z-10 p-1.5 md:p-2 bg-gray-800/80 hover:bg-gray-700/80 text-gray-200 rounded-lg transition-all duration-200 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
-        title="Copy code"
-      >
-        {copied ? (
-          <Check className="h-3 w-3 md:h-4 md:w-4 text-green-400" />
-        ) : (
-          <Copy className="h-3 w-3 md:h-4 md:w-4" />
-        )}
-      </button>
+      <Tooltip open={copied}>
+        <TooltipTrigger asChild>
+          <button
+            onClick={handleCopy}
+            className="absolute top-3 md:top-4 right-3 md:right-4 z-10 p-1.5 md:p-2 bg-gray-800/80 hover:bg-gray-700/80 text-gray-200 rounded-lg transition-all duration-200 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
+            title="Copy code"
+          >
+            {copied ? (
+              <Check className="h-3 w-3 md:h-4 md:w-4 text-green-400" />
+            ) : (
+              <Copy className="h-3 w-3 md:h-4 md:w-4" />
+            )}
+          </button>
+        </TooltipTrigger>
+        <TooltipPortal>
+          <TooltipContent>
+            <p>Copied to clipboard!</p>
+          </TooltipContent>
+        </TooltipPortal>
+      </Tooltip>
 
       {/* Code block */}
       <div className="relative rounded-lg md:rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg">

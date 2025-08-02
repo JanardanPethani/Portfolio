@@ -122,7 +122,7 @@ export default function LandingHero() {
               </span>
               <br />
               <span
-                className="text-primary text-lg md:text-2xl font-medium mt-3 block text-shadow-[1px 1px 2px pink]"
+                className="text-primary text-2xl font-medium mt-3 block text-shadow-[1px 1px 2px pink]"
                 data-testid="landing-hero-role"
               >
                 Full Stack Developer.

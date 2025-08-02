@@ -66,6 +66,62 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 
+  /* Mobile font size adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+    h2 {
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+    }
+    h3 {
+      font-size: 1.125rem !important;
+      line-height: 1.75rem !important;
+    }
+    h4, h5, h6 {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+    p {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+    .text-lg {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+    .text-xl {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+    .text-2xl {
+      font-size: 1.125rem !important;
+      line-height: 1.75rem !important;
+    }
+    .text-3xl {
+      font-size: 1.25rem !important;
+      line-height: 2rem !important;
+    }
+    .text-4xl {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+    .text-5xl {
+      font-size: 1.875rem !important;
+      line-height: 2.25rem !important;
+    }
+    .text-6xl {
+      font-size: 2.25rem !important;
+      line-height: 2.5rem !important;
+    }
+    .text-7xl {
+      font-size: 3rem !important;
+      line-height: 1 !important;
+    }
+  }
+
   /* Reference: https://codepen.io/jh3y/pen/ExzdZXN*/
   body::before {
     --size: 50px;
@@ -310,4 +366,54 @@
   .prose td {
     @apply px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm;
   }
+
+  .liquidGlass-wrapper {
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    overflow: hidden;
+  
+    color: black;
+    cursor: pointer;
+  
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+  }
+  
+  .liquidGlass-effect {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+  
+    backdrop-filter: blur(3px);
+    filter: url(#glass-distortion);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .liquidGlass-tint {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .liquidGlass-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  
+    overflow: hidden;
+  
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+      inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  }
+  
+  .liquidGlass-text {
+    z-index: 3;
+    font-size: 2rem;
+    color: black;
+  }
 }
+

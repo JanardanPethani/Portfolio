@@ -1,6 +1,6 @@
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
-import CodeSection from "@/components/Blog/CodeSection";
+import CodeSection from "@/components/Blog/CodeSectionDynamic";
 import ImageSection from "@/components/Blog/ImageSection";
 
 export const blog = {

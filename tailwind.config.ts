@@ -19,6 +19,21 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        xs: ["0.75rem", { lineHeight: "1rem" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem" }],
+        base: ["0.875rem", { lineHeight: "1.5rem" }], // Reduced from 1rem
+        lg: ["1rem", { lineHeight: "1.75rem" }], // Reduced from 1.125rem
+        xl: ["1.125rem", { lineHeight: "1.75rem" }], // Reduced from 1.25rem
+        "2xl": ["1.25rem", { lineHeight: "2rem" }], // Reduced from 1.5rem
+        "3xl": ["1.5rem", { lineHeight: "2rem" }], // Reduced from 1.875rem
+        "4xl": ["1.875rem", { lineHeight: "2.25rem" }], // Reduced from 2.25rem
+        "5xl": ["2.25rem", { lineHeight: "2.5rem" }], // Reduced from 3rem
+        "6xl": ["3rem", { lineHeight: "1" }], // Reduced from 3.75rem
+        "7xl": ["3.75rem", { lineHeight: "1" }], // Reduced from 4.5rem
+        "8xl": ["4.5rem", { lineHeight: "1" }], // Reduced from 6rem
+        "9xl": ["6rem", { lineHeight: "1" }], // Reduced from 8rem
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
