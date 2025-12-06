@@ -1,5 +1,4 @@
 import TitleSection from "@/components/Blog/TitleSection";
-import ImageSection from "@/components/Blog/ImageSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
 

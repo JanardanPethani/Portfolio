@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import {
   Alignment,
@@ -25,17 +25,10 @@ const InteractiveFace = ({ className = "" }: { className?: string }) => {
 
   const isLight = useStateMachineInput(rive, "State Machine 1", "Light");
   useEffect(() => {
-    if (!rive) return;
-    // Apply theme-based styling to the Rive canvas
-    // @ts-ignore
-    const canvas = rive.canvas as HTMLCanvasElement;
-    if (isLight) {
-      if (resolvedTheme === "dark") {
-        isLight.value = true;
-      } else {
-        isLight.value = false;
-      }
-    }
+    if (!rive || !isLight) return;
+    // Rive API requires direct mutation of state machine input values
+    // eslint-disable-next-line react-hooks/immutability
+    isLight.value = resolvedTheme === "dark";
   }, [isLight, resolvedTheme, rive]);
 
   return (

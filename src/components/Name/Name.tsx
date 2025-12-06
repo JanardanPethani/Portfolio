@@ -112,13 +112,9 @@ const RotatingText = ({
 
 const Name3D = () => {
   const { theme } = useTheme();
-  const [materialColor, setMaterialColor] = useState("#ffffff");
+  const [materialColor] = useState(theme === "light" ? "#000000" : "#ffffff");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setMaterialColor(theme === "light" ? "#000000" : "#ffffff");
-  }, [theme]);
 
   return (
     <div className="relative w-full mt-10 md:mt-0 min-h-[150px] h-[22vw] md:h-[120px] overflow-visible">

@@ -36,14 +36,9 @@ const textVariants = {
 
 export default function LandingHero() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [shineOnce, setShineOnce] = useState(false);
+  const [mounted] = useState(true);
+  const [shineOnce, setShineOnce] = useState(true);
   const shineRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-    setShineOnce(true);
-  }, []);
 
   useEffect(() => {
     if (!shineOnce || !shineRef.current) return;

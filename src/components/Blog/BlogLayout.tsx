@@ -4,7 +4,6 @@ import PublishDate from "./PublishDate";
 import Categories from "./Categories";
 import BlogContent from "./BlogContent";
 import { calculateReadingTime, formatReadingTime } from "@/lib/utils";
-import Image from "next/image";
 
 interface BlogLayoutProps {
   title: string;

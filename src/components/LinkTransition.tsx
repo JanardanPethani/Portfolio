@@ -1,6 +1,6 @@
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-import { MouseEvent, ReactNode, useEffect } from "react";
+import { MouseEvent } from "react";
 import React from "react";
 
 interface LinkTransitionProps {
