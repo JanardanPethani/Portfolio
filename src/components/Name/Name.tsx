@@ -17,7 +17,7 @@ const RotatingText = ({
   onLoad,
 }: {
   materialColor: string;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  canvasRef: React.RefObject<HTMLCanvasElement | null>;
   onLoad: () => void;
 }) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -111,10 +111,15 @@ const RotatingText = ({
 };
 
 const Name3D = () => {
-  const { theme } = useTheme();
-  const [materialColor] = useState(theme === "light" ? "#000000" : "#ffffff");
+  const { resolvedTheme } = useTheme();
+  const [materialColor, setMaterialColor] = useState("#000000");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMaterialColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+  }, [resolvedTheme]);
 
   return (
     <div className="relative w-full mt-10 md:mt-0 min-h-[150px] h-[22vw] md:h-[120px] overflow-visible">
@@ -127,7 +132,7 @@ const Name3D = () => {
           <directionalLight
             position={[-5, 10, 5]}
             intensity={0.7}
-            color={theme === "dark" ? "#6ec1e4" : "#ffb347"}
+            color={resolvedTheme === "dark" ? "#6ec1e4" : "#ffb347"}
             castShadow
           />
           {/* Original point light for highlights */}
@@ -143,7 +148,7 @@ const Name3D = () => {
       {isLoading && (
         <Loader
           dataStyles={{
-            color: theme === "light" ? "#000000" : "#ffffff",
+            color: resolvedTheme === "dark" ? "#ffffff" : "#000000",
             backgroundColor: "transparent",
           }}
         />

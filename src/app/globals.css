@@ -291,7 +291,7 @@
 
   /* Enhanced prose styles */
   .prose {
-    @apply text-gray-900 dark:text-gray-100;
+    @apply text-foreground;
   }
 
   .prose h1,
@@ -300,35 +300,35 @@
   .prose h4,
   .prose h5,
   .prose h6 {
-    @apply font-bold text-gray-900 dark:text-gray-100;
+    @apply font-bold text-foreground;
   }
 
   .prose p {
-    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+    @apply text-foreground leading-relaxed;
   }
 
   .prose a {
-    @apply text-blue-600 dark:text-blue-400 no-underline hover:underline transition-colors duration-200;
+    @apply text-primary no-underline hover:underline transition-colors duration-200;
   }
 
   .prose strong {
-    @apply font-semibold text-gray-900 dark:text-gray-100;
+    @apply font-semibold text-foreground;
   }
 
   .prose code {
-    @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm font-mono border border-gray-200 dark:border-gray-700;
+    @apply bg-muted text-foreground px-2 py-1 rounded text-sm font-mono border border-border;
   }
 
   .prose pre {
-    @apply bg-gray-900 dark:bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto border border-gray-200 dark:border-gray-700;
+    @apply bg-muted text-foreground p-4 rounded-lg overflow-x-auto border border-border;
   }
 
   .prose pre code {
-    @apply bg-transparent text-gray-100 p-0 border-0;
+    @apply bg-transparent text-foreground p-0 border-0;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-blue-500 pl-4 italic text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/20 py-2 rounded-r-lg;
+    @apply border-l-4 border-primary pl-4 italic text-foreground bg-primary/10 py-2 rounded-r-lg;
   }
 
   .prose ul,
@@ -337,7 +337,7 @@
   }
 
   .prose li {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-foreground;
   }
 
   .prose img {
@@ -349,37 +349,37 @@
   }
 
   .prose th {
-    @apply text-left font-semibold text-gray-900 dark:text-gray-100;
+    @apply text-left font-semibold text-foreground;
   }
 
   .prose td {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-foreground;
   }
 
   /* Syntax highlighting improvements */
   .prose pre[class*="language-"] {
-    @apply bg-gray-900 dark:bg-gray-800 text-gray-100;
+    @apply bg-muted text-foreground;
   }
 
   .prose code[class*="language-"] {
-    @apply bg-transparent text-gray-100;
+    @apply bg-transparent text-foreground;
   }
 
   /* Table responsiveness */
   .prose table {
-    @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+    @apply min-w-full divide-y divide-border;
   }
 
   .prose thead {
-    @apply bg-gray-50 dark:bg-gray-800;
+    @apply bg-muted;
   }
 
   .prose tbody {
-    @apply divide-y divide-gray-200 dark:divide-gray-700;
+    @apply divide-y divide-border;
   }
 
   .prose tr {
-    @apply hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200;
+    @apply hover:bg-muted transition-colors duration-200;
   }
 
   .prose th,

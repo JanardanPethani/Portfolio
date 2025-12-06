@@ -69,10 +69,11 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          storageKey="portfolio-theme"
         >
           <TooltipProvider>
             <NavBar />
-            <main id="main" className="container">
+            <main id="main" className="container mx-auto">
               {children}
             </main>
           </TooltipProvider>

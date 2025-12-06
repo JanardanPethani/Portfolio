@@ -9,12 +9,12 @@ export const ExperienceTimeline = () => {
   return (
     <div className="max-w-6xl mx-auto py-8">
       <Tabs defaultValue={experiences[0]?.name || ""} className="w-full">
-        <TabsList className="flex w-full flex-wrap gap-2 mb-12 bg-gray-50 dark:bg-gray-900/50 p-2">
+        <TabsList className="flex w-full flex-wrap gap-2 mb-12 bg-muted/50 dark:bg-muted p-2">
           {experiences.map((company) => (
             <TabsTrigger
               key={company.name}
               value={company.name}
-              className="text-sm font-medium data-[state=active]:bg-white dark:data-[state=active]:bg-gray-900 data-[state=active]:shadow-sm flex-1 min-w-0 px-4 py-2 whitespace-nowrap overflow-hidden text-ellipsis"
+              className="text-sm font-medium data-[state=active]:bg-background dark:data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm flex-1 min-w-0 px-4 py-2 whitespace-nowrap overflow-hidden text-ellipsis"
             >
               <span className="truncate">{company.name}</span>
             </TabsTrigger>
@@ -35,19 +35,19 @@ export const ExperienceTimeline = () => {
               className="text-center"
             >
               <div className="inline-flex items-center gap-3 mb-2">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-2xl font-bold text-foreground">
                   {company.name}
                 </h2>
                 <a
                   target="_blank"
                   href={company.linkedInLink}
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <SquareArrowOutUpRight className="h-4 w-4" />
                 </a>
               </div>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 {company.period}
               </p>
             </motion.div>
@@ -68,10 +68,10 @@ export const ExperienceTimeline = () => {
                 <div className="flex items-center justify-center py-12">
                   <div className="text-center">
                     <div className="text-6xl mb-4">🚀</div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
                       Coming Soon
                     </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Projects are being added. Stay tuned!
                     </p>
                   </div>

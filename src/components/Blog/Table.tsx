@@ -7,9 +7,9 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ children }) => {
   return (
     <div className="my-6 md:my-8">
-      <div className="w-full overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg">
+      <div className="w-full overflow-hidden rounded-xl border border-border shadow-lg">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-900">
+          <table className="min-w-full divide-y divide-border bg-card">
             {children}
           </table>
         </div>
@@ -23,7 +23,7 @@ interface TableHeadProps {
 }
 
 const TableHead: React.FC<TableHeadProps> = ({ children }) => {
-  return <thead className="bg-gray-50 dark:bg-gray-800">{children}</thead>;
+  return <thead className="bg-muted">{children}</thead>;
 };
 
 interface TableBodyProps {
@@ -32,7 +32,7 @@ interface TableBodyProps {
 
 const TableBody: React.FC<TableBodyProps> = ({ children }) => {
   return (
-    <tbody className="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-900">
+    <tbody className="divide-y divide-border bg-card">
       {children}
     </tbody>
   );
@@ -44,7 +44,7 @@ interface TableRowProps {
 
 const TableRow: React.FC<TableRowProps> = ({ children }) => {
   return (
-    <tr className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200">
+    <tr className="hover:bg-muted transition-colors duration-200">
       {children}
     </tr>
   );
@@ -56,7 +56,7 @@ interface TableHeaderProps {
 
 const TableHeader: React.FC<TableHeaderProps> = ({ children }) => {
   return (
-    <th className="px-3 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider whitespace-nowrap">
+    <th className="px-3 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider whitespace-nowrap">
       {children}
     </th>
   );
@@ -68,7 +68,7 @@ interface TableCellProps {
 
 const TableCell: React.FC<TableCellProps> = ({ children }) => {
   return (
-    <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+    <td className="px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm text-foreground">
       {children}
     </td>
   );

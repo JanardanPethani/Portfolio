@@ -13,7 +13,7 @@ const leftVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.9, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.9, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 const rightVariants = {
@@ -21,7 +21,7 @@ const rightVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.9, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.9, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 const textVariants = {
@@ -30,7 +30,7 @@ const textVariants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 1.1, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 1.1, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 
@@ -83,7 +83,7 @@ export default function LandingHero() {
           variants={leftVariants}
           data-testid="landing-hero-left"
         >
-          <InteractiveFace className="h-[40vh] md:h-[70vh] w-auto max-w-[95vw] md:max-w-[90%] drop-shadow-xl" />
+          <InteractiveFace className="h-[38vh] md:h-[80vh] w-auto max-w-[95vw] md:max-w-[90%] drop-shadow-xl" />
         </motion.div>
         {/* Right Side: Text and Socials */}
         <motion.div
@@ -94,7 +94,7 @@ export default function LandingHero() {
           data-testid="landing-hero-right"
         >
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 w-full break-words text-center md:text-left"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4 w-full wrap-break-word text-center md:text-left"
             initial="hidden"
             animate="visible"
             variants={textVariants}

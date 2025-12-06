@@ -48,7 +48,7 @@ const SocialSidebar: React.FC = () => {
 
   return (
     <div className="fixed right-2 md:right-6 top-1/2 transform -translate-y-1/2 z-50 hidden xl:block">
-      <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl shadow-gray-500/10 dark:shadow-gray-900/50">
+      <div className="bg-card/90 backdrop-blur-xl border border-border/50 rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl">
         <div className="flex flex-col space-y-2 md:space-y-3">
           <Tooltip open={isCopied}>
             <TooltipTrigger asChild>
@@ -69,7 +69,7 @@ const SocialSidebar: React.FC = () => {
           {/* Social media buttons */}
           <button
             onClick={() => handleShare("twitter")}
-            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on Twitter"
           >
             <Twitter className="h-4 w-4 md:h-5 md:w-5" />
@@ -77,7 +77,7 @@ const SocialSidebar: React.FC = () => {
 
           <button
             onClick={() => handleShare("facebook")}
-            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on Facebook"
           >
             <Facebook className="h-4 w-4 md:h-5 md:w-5" />
@@ -85,7 +85,7 @@ const SocialSidebar: React.FC = () => {
 
           <button
             onClick={() => handleShare("linkedin")}
-            className="p-2 md:p-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg md:rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+            className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on LinkedIn"
           >
             <Linkedin className="h-4 w-4 md:h-5 md:w-5" />

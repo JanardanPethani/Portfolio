@@ -16,8 +16,8 @@ const PublishDate: React.FC<PublishDateProps> = ({ date }) => {
   };
 
   return (
-    <div className="flex items-center text-gray-600 dark:text-gray-400 w-[-webkit-fill-available]">
-      <Calendar className="h-4 w-4 mr-2 text-blue-500 dark:text-blue-400" />
+    <div className="flex items-center text-muted-foreground w-[-webkit-fill-available]">
+      <Calendar className="h-4 w-4 mr-2 text-primary" />
       <span className="font-medium">{formatDate(date)}</span>
     </div>
   );

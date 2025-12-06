@@ -15,7 +15,7 @@ import {
 export const blog = {
   slug: "web-automation-with-llm",
   title: "Web Automation with LLM: A Comprehensive Guide",
-  publishDate: "2025-01-15",
+  publishDate: "2025-12-06",
   categories: [
     "Web Automation",
     "LLM",
