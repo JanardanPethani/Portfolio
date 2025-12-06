@@ -12,7 +12,11 @@ const BlogList = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
-  const selectedCategories = searchParams.get("categories")?.split(",") || [];
+  const rawCategories = searchParams.get("categories") || "";
+  const selectedCategories = rawCategories
+    .split(",")
+    .map((c) => c.trim())
+    .filter(Boolean);
 
   const [categories, setCategories] = useState<string[]>(selectedCategories);
 
@@ -31,7 +35,11 @@ const BlogList = () => {
     const search = e.target.value;
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", search);
-    params.set("categories", categories.join(","));
+    if (categories.length > 0) {
+      params.set("categories", categories.join(","));
+    } else {
+      params.delete("categories");
+    }
     router.push(`/blog-list?${params.toString()}`);
   };
 
@@ -42,7 +50,11 @@ const BlogList = () => {
     setCategories(newCategories);
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", searchTerm);
-    params.set("categories", newCategories.join(","));
+    if (newCategories.length > 0) {
+      params.set("categories", newCategories.join(","));
+    } else {
+      params.delete("categories");
+    }
     router.push(`/blog-list?${params.toString()}`);
   };
 
@@ -67,7 +79,7 @@ const BlogList = () => {
             </div>
 
             {/* Filter */}
-            <div className="space-y-3">
+            <div className="space-y-3 z-10">
               <div className="flex items-center gap-2">
                 <Filter className="h-4 w-4 text-gray-500 dark:text-gray-400" />
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
