@@ -1,6 +1,6 @@
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
-import { MouseEvent, ReactNode, useEffect } from "react";
+import { MouseEvent } from "react";
 import React from "react";
 
 interface LinkTransitionProps {
@@ -9,7 +9,11 @@ interface LinkTransitionProps {
   className?: string;
 }
 
-const LinkTransition: React.FC<LinkTransitionProps & LinkProps> = ({ href, children, ...rest }) => {
+const LinkTransition: React.FC<LinkTransitionProps & LinkProps> = ({
+  href,
+  children,
+  ...rest
+}) => {
   const router = useRouter();
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!document.startViewTransition) {
@@ -18,7 +22,7 @@ const LinkTransition: React.FC<LinkTransitionProps & LinkProps> = ({ href, child
     } else {
       // browser supports view transition. Animate the transition.
       e.preventDefault();
-      
+
       // Start the transition and navigate
       document.startViewTransition(() => {
         router.push(href as string);

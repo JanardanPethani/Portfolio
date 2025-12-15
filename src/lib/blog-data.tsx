@@ -6,6 +6,7 @@ import { blog as blog5 } from "./data/blog-5";
 import { blog as blog6 } from "./data/blog-6";
 import { blog as blog7 } from "./data/blog-7";
 import { blog as blog8 } from "./data/blog-8";
+import { blog as blog9 } from "./data/blog-9";
 
 export const fetchCache = "force-no-store";
 
@@ -18,4 +19,5 @@ export const blogData = [
   blog6,
   blog7,
   blog8,
+  blog9,
 ];

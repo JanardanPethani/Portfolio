@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import LinkTransition from "./LinkTransition";
-import VisitorCount from "./VisitorCount";
+// import VisitorCount from "./VisitorCount";
 
 const MENUS = [
   { title: "Home", path: "/" },
@@ -24,10 +24,12 @@ const MENUS = [
 ];
 
 const NavBar = () => {
-  const { setTheme, theme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const path = usePathname();
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -53,7 +55,7 @@ const NavBar = () => {
       </NavigationMenu>
 
       <div className="fixed z-10 top-2 right-2 flex items-center gap-2">
-        <VisitorCount />
+        {/* <VisitorCount /> */}
 
         {/* Theme icon toggle */}
         {mounted && resolvedTheme && (

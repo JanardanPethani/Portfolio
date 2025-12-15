@@ -1,6 +1,6 @@
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
-import CodeSection from "@/components/Blog/CodeSection";
+import CodeSection from "@/components/Blog/CodeSectionDynamic";
 import ImageSection from "@/components/Blog/ImageSection";
 
 export const blog = {
@@ -10,9 +10,17 @@ export const blog = {
   categories: ["Testing", "JavaScript", "React"],
   excerpt:
     "How to fix the 'SyntaxError: Cannot use import statement outside a module' error when testing ES module libraries with Jest.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">
+        <ImageSection
+          src="/images/blog/default-thumbnail.jpg"
+          alt="Blog post illustration"
+          width={1200}
+          height={630}
+        />
+
         <TitleSection>
           Solving Jest Testing Challenges with ES Modules
         </TitleSection>

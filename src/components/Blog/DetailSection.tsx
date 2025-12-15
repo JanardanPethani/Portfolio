@@ -6,7 +6,7 @@ interface DetailSectionProps {
 
 const DetailSection: React.FC<DetailSectionProps> = ({ children }) => {
   return (
-    <div className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 space-y-4">
+    <div className="text-lg leading-relaxed text-foreground mb-8 space-y-4">
       {children}
     </div>
   );

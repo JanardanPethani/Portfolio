@@ -9,6 +9,7 @@ export const blog = {
   categories: ["React", "Vite", "Library", "npm"],
   excerpt:
     "A step-by-step guide to publishing your own React component as a npm package, starting from a Vite app. Real-world example: @janardanpethani/genmoji.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">

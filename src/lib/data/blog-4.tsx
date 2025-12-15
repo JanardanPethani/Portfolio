@@ -17,6 +17,7 @@ export const blog = {
   categories: ["JavaScript", "OOP", "Prototypes"],
   excerpt:
     "A deep dive into the difference between __proto__ and prototype in JavaScript, with simple and complex examples to understand prototype inheritance.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">
@@ -44,7 +45,7 @@ export const blog = {
         </div>
 
         <TitleSection>The Basics</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <div>Let&apos;s start with the fundamental concepts:</div>
           <ul className="list-disc list-inside ml-4">
             <li>
@@ -67,7 +68,7 @@ export const blog = {
         </div>
 
         <TitleSection>Simple Example</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <div>
             Let&apos;s look at a simple example to understand the relationship:
           </div>
@@ -93,7 +94,7 @@ export const blog = {
         />
 
         <TitleSection>Understanding the Chain</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <div>
             When you try to access a property on an object, JavaScript follows
             this process:
@@ -119,7 +120,7 @@ export const blog = {
         </div>
 
         <TitleSection>Complex Example</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <div>Let&apos;s explore a more complex example with inheritance:</div>
         </div>
         <CodeSection
@@ -162,7 +163,7 @@ export const blog = {
     dog.bark(); // "Woof!"`}
         />
 
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <strong>
             Note on <code>Object.create</code>:
           </strong>{" "}
@@ -229,7 +230,7 @@ export const blog = {
         </Table>
 
         <TitleSection>Best Practices</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <ul className="list-disc list-inside ml-4">
             <li>
               Use <code>Object.create()</code> for setting up inheritance
@@ -253,7 +254,7 @@ export const blog = {
         </div>
 
         <TitleSection>Class-based Inheritance</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <div>
             It&apos;s important to note that class-based inheritance in
             JavaScript is implemented on top of the prototype-based delegation.
@@ -281,7 +282,7 @@ export const blog = {
         </DetailSection>
 
         <TitleSection>References</TitleSection>
-        <div className="text-md md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+        <div className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
           <ul className="list-disc list-inside ml-4">
             <li>
               <a

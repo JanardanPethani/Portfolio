@@ -17,7 +17,7 @@ const ImageSection: React.FC<ImageSectionProps> = ({
   return (
     <div className="my-8">
       <div className="relative group">
-        <div className="overflow-hidden rounded-2xl shadow-2xl shadow-gray-500/20 dark:shadow-gray-900/50">
+        <div className="overflow-hidden rounded-2xl shadow-2xl">
           <Image
             src={src}
             alt={alt}
@@ -30,7 +30,7 @@ const ImageSection: React.FC<ImageSectionProps> = ({
         {/* Caption */}
         {alt && (
           <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600 dark:text-gray-400 italic bg-gray-50 dark:bg-gray-800/50 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-muted-foreground italic bg-muted/50 px-4 py-2 rounded-lg border border-border">
               {alt}
             </p>
           </div>

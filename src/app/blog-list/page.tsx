@@ -12,7 +12,11 @@ const BlogList = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
-  const selectedCategories = searchParams.get("categories")?.split(",") || [];
+  const rawCategories = searchParams.get("categories") || "";
+  const selectedCategories = rawCategories
+    .split(",")
+    .map((c) => c.trim())
+    .filter(Boolean);
 
   const [categories, setCategories] = useState<string[]>(selectedCategories);
 
@@ -31,7 +35,11 @@ const BlogList = () => {
     const search = e.target.value;
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", search);
-    params.set("categories", categories.join(","));
+    if (categories.length > 0) {
+      params.set("categories", categories.join(","));
+    } else {
+      params.delete("categories");
+    }
     router.push(`/blog-list?${params.toString()}`);
   };
 
@@ -42,7 +50,11 @@ const BlogList = () => {
     setCategories(newCategories);
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", searchTerm);
-    params.set("categories", newCategories.join(","));
+    if (newCategories.length > 0) {
+      params.set("categories", newCategories.join(","));
+    } else {
+      params.delete("categories");
+    }
     router.push(`/blog-list?${params.toString()}`);
   };
 
@@ -51,26 +63,26 @@ const BlogList = () => {
       <div className="container mx-auto py-8 md:py-12 px-4">
         {/* Search and Filter Section */}
         <div className="mb-8 md:mb-12">
-          <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-4 md:p-6 shadow-lg">
+          <div className="bg-card/95 backdrop-blur-sm border border-border/50 rounded-2xl p-4 md:p-6 shadow-lg">
             {/* Search */}
             <div className="mb-4 md:mb-6">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search articles..."
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className="pl-10 h-12 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl"
+                  className="pl-10 h-12 bg-muted border-border focus:border-primary rounded-xl"
                 />
               </div>
             </div>
 
             {/* Filter */}
-            <div className="space-y-3">
+            <div className="space-y-3 z-10">
               <div className="flex items-center gap-2">
-                <Filter className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                <Filter className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium text-foreground">
                   Filter by:
                 </span>
               </div>
@@ -82,8 +94,8 @@ const BlogList = () => {
             </div>
 
             {/* Results count */}
-            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="mt-4 pt-4 border-t border-border">
+              <p className="text-sm text-muted-foreground">
                 {filteredBlogs.length} article
                 {filteredBlogs.length !== 1 ? "s" : ""} found
               </p>
@@ -100,11 +112,11 @@ const BlogList = () => {
           </div>
         ) : (
           <div className="text-center py-12 md:py-16">
-            <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-8 md:p-12">
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+            <div className="bg-card/95 backdrop-blur-sm border border-border/50 rounded-2xl p-8 md:p-12">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
                 No articles found
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Try adjusting your search terms or filters to find what
                 you&apos;re looking for.
               </p>
@@ -112,7 +124,7 @@ const BlogList = () => {
                 onClick={() => {
                   router.push("/blog-list");
                 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-all duration-300"
               >
                 Clear filters
               </button>

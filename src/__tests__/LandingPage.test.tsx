@@ -24,12 +24,28 @@ vi.mock("framer-motion", () => {
   return {
     ...actualFramerMotion,
     motion: {
-      div: ({ children, className, ...props }: any) => (
+      div: ({
+        children,
+        className,
+        ...props
+      }: {
+        children?: React.ReactNode;
+        className?: string;
+        [key: string]: unknown;
+      }) => (
         <div className={className} {...props}>
           {children}
         </div>
       ),
-      h1: ({ children, className, ...props }: any) => (
+      h1: ({
+        children,
+        className,
+        ...props
+      }: {
+        children?: React.ReactNode;
+        className?: string;
+        [key: string]: unknown;
+      }) => (
         <h1 className={className} {...props}>
           {children}
         </h1>
@@ -77,7 +93,7 @@ describe("Home Page", () => {
     }));
 
     vi.mock("@gsap/react", () => ({
-      useGSAP: (callback: Function) => {
+      useGSAP: (callback: () => void) => {
         callback();
         return {};
       },

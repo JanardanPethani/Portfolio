@@ -30,9 +30,8 @@ export default function TextHighlight({
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (isRendered) {
-      if (isRendered) {
-        isRendered.value = true;
-      }
+      // eslint-disable-next-line
+      (isRendered as any).value = true;
 
       timeout = setTimeout(() => {
         rive?.play();
@@ -47,11 +46,12 @@ export default function TextHighlight({
   useEffect(() => {
     if (!rive) return;
     if (resolvedTheme === "dark") {
-      // @ts-ignore
+      // @ts-expect-error - Rive canvas is not typed
       const canvas = rive.canvas as HTMLCanvasElement;
+      // eslint-disable-next-line
       canvas.style.filter = "invert(1)";
     } else {
-      // @ts-ignore
+      // @ts-expect-error - Rive canvas is not typed
       const canvas = rive.canvas as HTMLCanvasElement;
       canvas.style.filter = "none";
     }

@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
 import LinkTransition from "../LinkTransition";
 import { Calendar, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface BlogCardProps {
   blog: {
@@ -10,6 +11,7 @@ interface BlogCardProps {
     publishDate: string;
     categories: string[];
     excerpt?: string;
+    thumbnail?: string;
   };
 }
 
@@ -24,48 +26,56 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     });
   };
 
+  // Default thumbnail for blogs without one
+  const thumbnailSrc = blog.thumbnail || `/images/blog/default-thumbnail.jpg`;
+
   return (
     <LinkTransition href={`/blog/${blog.slug}`}>
-      <Card className="group relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-gray-200/50 dark:border-gray-700/50 rounded-xl md:rounded-2xl hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transition-all duration-500 hover:-translate-y-1 md:hover:-translate-y-2 h-full flex flex-col backdrop-blur-sm">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Animated border */}
-        <div className="absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+      <Card className="group relative overflow-hidden bg-card border border-border rounded-xl md:rounded-2xl hover:border-primary transition-all duration-300 h-full flex flex-col">
+        {/* Thumbnail Image */}
+        <div className="relative w-full h-48 overflow-hidden">
+          <Image
+            src={thumbnailSrc}
+            alt={`${blog.title} thumbnail`}
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={false}
+          />
+        </div>
         <CardContent className="p-4 md:p-6 flex flex-col h-full relative z-10">
           {/* Categories */}
           <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
             {blog.categories.slice(0, 2).map((category) => (
               <span
                 key={category}
-                className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-700 dark:text-blue-300 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-semibold border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-sm"
+                className="bg-primary/10 text-primary px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-semibold border border-primary/20"
               >
                 {category}
               </span>
             ))}
             {blog.categories.length > 2 && (
-              <span className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-medium">
+              <span className="bg-muted text-muted-foreground px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs font-medium">
                 +{blog.categories.length - 2}
               </span>
             )}
           </div>
 
           {/* Title */}
-          <CardTitle className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 md:mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+          <CardTitle className="text-lg md:text-xl font-bold text-card-foreground mb-2 md:mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">
             {blog.title}
           </CardTitle>
 
           {/* Excerpt */}
           {blog.excerpt && (
-            <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-6 line-clamp-3 leading-relaxed text-sm md:text-base">
+            <p className="text-muted-foreground mb-4 md:mb-6 line-clamp-3 leading-relaxed text-sm md:text-base">
               {blog.excerpt}
             </p>
           )}
 
           {/* Meta information */}
           <div className="mt-auto space-y-2 md:space-y-3">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
                 <div className="flex items-center">
                   <Calendar className="h-3 w-3 md:h-4 md:w-4 mr-1" />

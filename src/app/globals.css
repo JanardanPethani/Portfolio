@@ -1,6 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+}
 
 @layer base {
   :root {
@@ -64,6 +84,62 @@
 @layer base {
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+  }
+
+  /* Mobile font size adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+    h2 {
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+    }
+    h3 {
+      font-size: 1.125rem !important;
+      line-height: 1.75rem !important;
+    }
+    h4, h5, h6 {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+    p {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+    .text-lg {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+    .text-xl {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+    .text-2xl {
+      font-size: 1.125rem !important;
+      line-height: 1.75rem !important;
+    }
+    .text-3xl {
+      font-size: 1.25rem !important;
+      line-height: 2rem !important;
+    }
+    .text-4xl {
+      font-size: 1.5rem !important;
+      line-height: 2rem !important;
+    }
+    .text-5xl {
+      font-size: 1.875rem !important;
+      line-height: 2.25rem !important;
+    }
+    .text-6xl {
+      font-size: 2.25rem !important;
+      line-height: 2.5rem !important;
+    }
+    .text-7xl {
+      font-size: 3rem !important;
+      line-height: 1 !important;
+    }
   }
 
   /* Reference: https://codepen.io/jh3y/pen/ExzdZXN*/
@@ -215,7 +291,7 @@
 
   /* Enhanced prose styles */
   .prose {
-    @apply text-gray-900 dark:text-gray-100;
+    @apply text-foreground;
   }
 
   .prose h1,
@@ -224,35 +300,35 @@
   .prose h4,
   .prose h5,
   .prose h6 {
-    @apply font-bold text-gray-900 dark:text-gray-100;
+    @apply font-bold text-foreground;
   }
 
   .prose p {
-    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+    @apply text-foreground leading-relaxed;
   }
 
   .prose a {
-    @apply text-blue-600 dark:text-blue-400 no-underline hover:underline transition-colors duration-200;
+    @apply text-primary no-underline hover:underline transition-colors duration-200;
   }
 
   .prose strong {
-    @apply font-semibold text-gray-900 dark:text-gray-100;
+    @apply font-semibold text-foreground;
   }
 
   .prose code {
-    @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm font-mono border border-gray-200 dark:border-gray-700;
+    @apply bg-muted text-foreground px-2 py-1 rounded text-sm font-mono border border-border;
   }
 
   .prose pre {
-    @apply bg-gray-900 dark:bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto border border-gray-200 dark:border-gray-700;
+    @apply bg-muted text-foreground p-4 rounded-lg overflow-x-auto border border-border;
   }
 
   .prose pre code {
-    @apply bg-transparent text-gray-100 p-0 border-0;
+    @apply bg-transparent text-foreground p-0 border-0;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-blue-500 pl-4 italic text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/20 py-2 rounded-r-lg;
+    @apply border-l-4 border-primary pl-4 italic text-foreground bg-primary/10 py-2 rounded-r-lg;
   }
 
   .prose ul,
@@ -261,7 +337,7 @@
   }
 
   .prose li {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-foreground;
   }
 
   .prose img {
@@ -273,41 +349,91 @@
   }
 
   .prose th {
-    @apply text-left font-semibold text-gray-900 dark:text-gray-100;
+    @apply text-left font-semibold text-foreground;
   }
 
   .prose td {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-foreground;
   }
 
   /* Syntax highlighting improvements */
   .prose pre[class*="language-"] {
-    @apply bg-gray-900 dark:bg-gray-800 text-gray-100;
+    @apply bg-muted text-foreground;
   }
 
   .prose code[class*="language-"] {
-    @apply bg-transparent text-gray-100;
+    @apply bg-transparent text-foreground;
   }
 
   /* Table responsiveness */
   .prose table {
-    @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+    @apply min-w-full divide-y divide-border;
   }
 
   .prose thead {
-    @apply bg-gray-50 dark:bg-gray-800;
+    @apply bg-muted;
   }
 
   .prose tbody {
-    @apply divide-y divide-gray-200 dark:divide-gray-700;
+    @apply divide-y divide-border;
   }
 
   .prose tr {
-    @apply hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200;
+    @apply hover:bg-muted transition-colors duration-200;
   }
 
   .prose th,
   .prose td {
     @apply px-3 md:px-6 py-3 md:py-4 text-xs md:text-sm;
   }
+
+  .liquidGlass-wrapper {
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    overflow: hidden;
+  
+    color: black;
+    cursor: pointer;
+  
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+  }
+  
+  .liquidGlass-effect {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+  
+    backdrop-filter: blur(3px);
+    filter: url(#glass-distortion);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .liquidGlass-tint {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .liquidGlass-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  
+    overflow: hidden;
+  
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+      inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  }
+  
+  .liquidGlass-text {
+    z-index: 3;
+    font-size: 2rem;
+    color: black;
+  }
 }
+

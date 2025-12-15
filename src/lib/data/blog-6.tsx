@@ -8,6 +8,7 @@ export const blog = {
   categories: ["Next.js", "React", "TailwindCSS", "TypeScript"],
   excerpt:
     "A detailed look at the modern web technologies and design decisions behind my portfolio website, including Next.js, React, TypeScript, and TailwindCSS for creating a responsive and performant web application.",
+  thumbnail: "/images/blog/default-thumbnail.jpg",
   content: (
     <div className="relative">
       <div className="mx-auto">

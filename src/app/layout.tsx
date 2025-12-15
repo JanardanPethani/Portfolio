@@ -6,6 +6,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 const fontAkshar = FontAkshar({
@@ -68,11 +69,14 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          storageKey="portfolio-theme"
         >
-          <NavBar />
-          <main id="main" className="container">
-            {children}
-          </main>
+          <TooltipProvider>
+            <NavBar />
+            <main id="main" className="container mx-auto">
+              {children}
+            </main>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
       {/* <GoogleTagManager
