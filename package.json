@@ -63,6 +63,13 @@
     "typescript": "^5",
     "vitest": "^4.0.15"
   },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-arm64-musl": "^4.1.18",
+    "@tailwindcss/oxide-linux-x64-musl": "^4.1.18",
+    "lightningcss-linux-arm64-musl": "^1.30.2",
+    "lightningcss-linux-x64-musl": "^1.30.2",
+    "lightningcss-linux-x64-gnu": "^1.30.2"
+  },
   "overrides": {
     "overrides": {
       "react-syntax-highlighter": {
