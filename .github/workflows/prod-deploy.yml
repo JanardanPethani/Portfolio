@@ -3,7 +3,6 @@ name: Run linter and tests on push
 on:
   push:
     branches:
-      - main
       - dev
 
 jobs:
