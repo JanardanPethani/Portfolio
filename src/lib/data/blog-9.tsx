@@ -30,12 +30,6 @@ export const blog = {
   content: (
     <div className="relative">
       <div className="mx-auto">
-        <ImageSection
-          src="/images/blog/blog-9.jpg"
-          alt="Web Automation with LLM"
-          width={1200}
-          height={630}
-        />
 
         <TitleSection>Why Browser Automation Matters Today?</TitleSection>
         <DetailSection>

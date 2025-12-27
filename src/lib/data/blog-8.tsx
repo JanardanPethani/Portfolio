@@ -1,7 +1,6 @@
 import TitleSection from "@/components/Blog/TitleSection";
 import DetailSection from "@/components/Blog/DetailSection";
 import CodeSection from "@/components/Blog/CodeSectionDynamic";
-import ImageSection from "@/components/Blog/ImageSection";
 
 export const blog = {
   slug: "jest-testing-es-modules",
@@ -14,12 +13,6 @@ export const blog = {
   content: (
     <div className="relative">
       <div className="mx-auto">
-        <ImageSection
-          src="/images/blog/default-thumbnail.jpg"
-          alt="Blog post illustration"
-          width={1200}
-          height={630}
-        />
 
         <TitleSection>
           Solving Jest Testing Challenges with ES Modules

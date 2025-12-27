@@ -104,9 +104,9 @@ export const blog = {
             &nbsp;
             <a
               href="https://github.com/JanardanPethani/nx-nestjs-reactjs-mysql/tree/with-docker"
-              target="_blank"
+              target="_blank" 
               rel="noopener noreferrer"
-              className="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              className="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-underline"
             >
               NX NestJS React MySQL Project
             </a>

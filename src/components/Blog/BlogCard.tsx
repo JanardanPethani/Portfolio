@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
 import LinkTransition from "../LinkTransition";
 import { Calendar, ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 interface BlogCardProps {
   blog: {
@@ -26,23 +25,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     });
   };
 
-  // Default thumbnail for blogs without one
-  const thumbnailSrc = blog.thumbnail || `/images/blog/default-thumbnail.jpg`;
-
   return (
     <LinkTransition href={`/blog/${blog.slug}`}>
-      <Card className="group relative overflow-hidden bg-card border border-border rounded-xl md:rounded-2xl hover:border-primary transition-all duration-300 h-full flex flex-col">
-        {/* Thumbnail Image */}
-        <div className="relative w-full h-48 overflow-hidden">
-          <Image
-            src={thumbnailSrc}
-            alt={`${blog.title} thumbnail`}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={false}
-          />
-        </div>
+      <Card className="group relative overflow-hidden bg-card border border-border hover:border-primary transition-all duration-300 h-full flex flex-col">
         <CardContent className="p-4 md:p-6 flex flex-col h-full relative z-10">
           {/* Categories */}
           <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
