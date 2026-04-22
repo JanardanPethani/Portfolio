@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import InteractiveFace from "@/components/InteractiveFace";
-import { Github, Linkedin } from "lucide-react";
+import { GitBranch, HeartHandshake } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import styles from "./LandingHero.module.css";
@@ -133,7 +133,7 @@ export default function LandingHero() {
               aria-label="GitHub"
               data-testid="github-link"
             >
-              <Github className="w-7 md:w-8 h-7 md:h-8" />
+              <GitBranch className="w-7 md:w-8 h-7 md:h-8" />
             </a>
             <a
               href="https://www.linkedin.com/in/janardan-pethani/"
@@ -143,7 +143,7 @@ export default function LandingHero() {
               aria-label="LinkedIn"
               data-testid="linkedin-link"
             >
-              <Linkedin className="w-7 md:w-8 h-7 md:h-8" />
+              <HeartHandshake className="w-7 md:w-8 h-7 md:h-8" />
             </a>
           </div>
         </motion.div>
