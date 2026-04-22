@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Twitter, Facebook, Linkedin, Link } from "lucide-react";
+import { HeartHandshakeIcon, Link } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -72,7 +72,7 @@ const SocialSidebar: React.FC = () => {
             className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on Twitter"
           >
-            <Twitter className="h-4 w-4 md:h-5 md:w-5" />
+            <HeartHandshakeIcon className="h-4 w-4 md:h-5 md:w-5" />
           </button>
 
           <button
@@ -80,7 +80,7 @@ const SocialSidebar: React.FC = () => {
             className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on Facebook"
           >
-            <Facebook className="h-4 w-4 md:h-5 md:w-5" />
+            <HeartHandshakeIcon className="h-4 w-4 md:h-5 md:w-5" />
           </button>
 
           <button
@@ -88,7 +88,7 @@ const SocialSidebar: React.FC = () => {
             className="p-2 md:p-3 bg-muted text-muted-foreground rounded-lg md:rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300"
             title="Share on LinkedIn"
           >
-            <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
+            <HeartHandshakeIcon className="h-4 w-4 md:h-5 md:w-5" />
           </button>
         </div>
       </div>
