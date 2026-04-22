@@ -34,7 +34,7 @@ const textVariants = {
   },
 };
 
-export default function LandingHero() {
+function LandingHero() {
   const { resolvedTheme } = useTheme();
   const [mounted] = useState(true);
   const [shineOnce, setShineOnce] = useState(true);
@@ -151,3 +151,6 @@ export default function LandingHero() {
     </>
   );
 }
+
+export default LandingHero;
+LandingHero.displayName = "LandingHero";
