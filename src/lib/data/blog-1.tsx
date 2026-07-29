@@ -66,9 +66,11 @@ export const blog = {
         <CodeSection
           language="bash"
           code={`# Google Analytics Configuration
-NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY_ID=XXXXXXXXXX  # Your GA4 Property ID
-NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL=your-service-account@project.iam.gserviceaccount.com  # From service account JSON
-NEXT_PUBLIC_GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"  # From service account JSON`}
+# NOTE: never prefix these with NEXT_PUBLIC_ — Next.js inlines those variables
+# into the browser bundle, which would leak your service account private key.
+GOOGLE_ANALYTICS_PROPERTY_ID=XXXXXXXXXX  # Your GA4 Property ID
+GOOGLE_CLIENT_EMAIL=your-service-account@project.iam.gserviceaccount.com  # From service account JSON
+GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"  # From service account JSON`}
         />
 
         <TitleSection>3. Install Required Dependencies</TitleSection>
@@ -90,18 +92,33 @@ pnpm add @google-analytics/data`}
         </DetailSection>
         <CodeSection
           language="typescript"
-          code={`import { BetaAnalyticsDataClient } from "@google-analytics/data";
+          code={`import "server-only";
 
-const { private_key } = JSON.parse(
-  process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY || "{ private_key: null }"
-);
+import { BetaAnalyticsDataClient } from "@google-analytics/data";
 
-export const analyticsDataClient = new BetaAnalyticsDataClient({
-  credentials: {
-    client_email: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL!,
-    private_key: private_key,
-  },
-});`}
+let client: BetaAnalyticsDataClient | undefined;
+
+// Build the client lazily so a missing credential fails the request that needs
+// it instead of crashing at import time.
+export function getAnalyticsDataClient(): BetaAnalyticsDataClient {
+  if (!client) {
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+    if (!clientEmail || !privateKey) {
+      throw new Error("Google service account credentials are not configured");
+    }
+
+    client = new BetaAnalyticsDataClient({
+      credentials: {
+        client_email: clientEmail,
+        private_key: privateKey.replace(/\\\\n/g, "\\n"),
+      },
+    });
+  }
+
+  return client;
+}`}
         />
 
         <TitleSection>5. Create API Route</TitleSection>
@@ -111,11 +128,14 @@ export const analyticsDataClient = new BetaAnalyticsDataClient({
         <CodeSection
           language="typescript"
           code={`import { NextResponse } from "next/server";
-import { analyticsDataClient } from "@/lib/google/client";
+import { getAnalyticsDataClient } from "@/lib/google/client";
+
+// Cache the upstream call so the public endpoint can't be used to burn quota.
+export const revalidate = 3600;
 
 export async function GET() {
   try {
-    const propertyId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY_ID;
+    const propertyId = process.env.GOOGLE_ANALYTICS_PROPERTY_ID;
     if (!propertyId) {
       return NextResponse.json(
         { error: "Google Analytics Property ID is not configured" },
@@ -123,7 +143,7 @@ export async function GET() {
       );
     }
 
-    const [response] = await analyticsDataClient.runReport({
+    const [response] = await getAnalyticsDataClient().runReport({
       property: \`properties/\${propertyId}\`,
       dateRanges: [
         {

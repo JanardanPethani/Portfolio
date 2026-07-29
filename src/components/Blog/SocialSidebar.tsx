@@ -41,7 +41,7 @@ const SocialSidebar: React.FC = () => {
       window.open(
         shareUrls[platform as keyof typeof shareUrls],
         "_blank",
-        "width=600,height=400"
+        "width=600,height=400,noopener,noreferrer"
       );
     }
   };

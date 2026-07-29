@@ -5,6 +5,11 @@ on:
     branches:
       - dev
 
+# Least privilege: this workflow only needs to read the repository. Secrets for
+# the deploy are supplied explicitly to the step that needs them.
+permissions:
+  contents: read
+
 jobs:
   run-linter-and-tests:
     runs-on: ubuntu-latest
